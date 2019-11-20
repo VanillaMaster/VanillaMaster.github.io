@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+   <script type="text/javascript" src="js/mootools.js" ></script>
+
+  <meta charset="utf-8">
+  <title>Тег IFRAME</title>
+ </head>
+ <body>
+
+   <select id="selectNumber">
+       <option>Choose a number</option>
+   </select>
+
+   <script>
+   var select = document.getElementById("selectNumber");
+   var options = ["1", "2", "3", "4", "5"];
+   for(var i = 0; i < options.length; i++) {
+       var opt = options[i];
+       var el = document.createElement("option");
+       el.textContent = opt;
+       el.value = opt;
+       select.appendChild(el);
+   }
+   </script>
+
+ </body>
+</html>
