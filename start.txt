@@ -7,7 +7,7 @@ var QRCode;!function(){function a(a){this.mode=c.MODE_8BIT_BYTE,this.data=a,this
 
 <style>
    body {
-    margin: 0;
+    margin: 4;
     padding: 0;
    }
   </style>
