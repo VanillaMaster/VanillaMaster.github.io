@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0">
     <title></title>
 
 <style>
@@ -33,18 +33,48 @@
   top:0;
 }
 
-.all {
-  width: 80%;
-  height: 80%;
+.dockbar {
+
+  transition: all 0.4s linear;
+
+  overflow: hiden;
+
+  background-color: #444963;
+
+  position: absolute;
+  left: 0; bottom: 0; right: 0;
+
+  margin-left: 2%;
+  margin-right: 2%;
+
+  width: 96%;
+  height: 75px;
 }
 
-input[type="text"]
-{
-    font-size:4;
+.all {
+  border: 0px;
+  padding: 0px;
+  margin: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 80%;
 }
 
 </style>
 
+<script>
+  function func1() {
+    if (document.getElementById("check").checked == false) {
+      document.getElementById("dockbar").style.height = "75%";
+      document.getElementById("check").checked = true;
+    } else {
+      document.getElementById("dockbar").style.height = "75px";
+      document.getElementById("check").checked = false;
+    }
+
+  }
+</script>
 
 
 
@@ -58,5 +88,12 @@ input[type="text"]
 
 
 <div class="searchbar">
-  <input class="all" size="100" type="text" name="" value="">
+  <input class="all" type="text" name="" value="">
+</div>
+
+<div class="dockbar" id="dockbar">
+
+  <input id="check" type="checkbox"/>
+
+  <button type="button" onclick="func1()" name="button">toggle dock</button>
 </div>
