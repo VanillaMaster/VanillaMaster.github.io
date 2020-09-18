@@ -61,6 +61,16 @@
   height: 80%;
 }
 
+.alveysvisibledock {
+    background-color: #f2f2f2;
+
+    margin: 5px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 60px;
+}
+
 </style>
 
 <script>
@@ -93,7 +103,12 @@
 
 <div class="dockbar" id="dockbar">
 
-  <input id="check" type="checkbox"/>
+  <div class="alveysvisibledock">
 
-  <button type="button" onclick="func1()" name="button">toggle dock</button>
+    <input id="check" type="checkbox"/>
+
+    <button type="button" onclick="func1()" name="button">toggle dock</button>
+
+  </div>
+
 </div>
