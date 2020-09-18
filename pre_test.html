@@ -28,13 +28,27 @@
 .content {
   overflow: scroll;
 
-  background-color: #f2f2f2;
+  background-color: #121212;
 
   width: 100%;
   height: 100%;
   position: absolute;
   left:0;
   top:0;
+}
+
+.playerholder {
+  overflow: scroll;
+
+  background-color: #121212;
+
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  left:0;
+  bottom:0;
+
+    transition: all 0.2s linear;
 }
 
 .dockbar {
@@ -55,7 +69,15 @@
   height: 10%;
 }
 
-.f_input { font-size: 1.2em; padding: 8px; width: 100%; height: 44px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box }
+.backbutton {
+
+  transition: all 0.4s linear;
+
+  position: absolute;
+  bottom: 40px; right: 30px;
+
+
+}
 
 
 .search {
@@ -80,6 +102,54 @@
     height: 60px;
 }
 
+.card {
+  background-color: #3d1920;
+  width: 47.5%;
+  margin: 1%;
+  display: inline-block;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.discription{
+  color: #e0e0e0;
+  background-color: #1f1f1f;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  position: absolute;
+  padding: 1px;
+}
+
+.series{
+  border-radius: 2px;
+  color: #7d7d7d;
+  background-color: #1f1f1f;
+  width: auto;
+  height: auto;
+  top: 30px;
+  right: 0;
+  position: absolute;
+  padding: 1px;
+}
+
+.none {
+  display: none;
+}
+
+.status{
+  border-radius: 2px;
+  color: #7d7d7d;
+  background-color: #1f1f1f;
+  width: auto;
+  height: auto;
+  top: 5px;
+  right: 0;
+  position: absolute;
+  padding: 1px;
+}
+
 </style>
 
 <script>
@@ -97,25 +167,117 @@
 
 
 
+<script type="text/javascript">
+
+  var currentpage = 1;
+
+      function scrolled(o)
+      {
+          //visible height + pixel scrolled = total height
+          if(o.offsetHeight + o.scrollTop > o.scrollHeight - 50)
+          {
+              currentpage++;
+              avostcontent(currentpage);
+
+          }
+      }
+
+      function togglesearch() {
+        if(document.getElementById("check_search").checked == true){
+          document.getElementById("searchbar").style.display = "block";
+          document.getElementById("check_search").checked = false;
+        } else {
+          document.getElementById("searchbar").style.display = "none";
+          document.getElementById("check_search").checked = true;
+        }
+      }
 
 
+      function avostcontent(page){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `gethtml?=https://a66.agorov.org/page/` + page, false);
+        xhr.send();
+        var html = xhr.responseText;
 
-<div class="content">
-<h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1><h1>asd</h1>
+        var mx = [];
+
+        var htmlArray = html.split(' <div class="shortstoryHead">');
+
+        htmlArray.splice(0, 1);
+
+        var count = htmlArray.length;
+
+        for (var i = 0; i < count; i++) {
+          mx.push(reprocess(htmlArray[i]));
+        }
+
+
+        var elem = document.getElementById("cardholder");
+
+        for (var i = 0; i < mx.length; i++) {
+
+          let htmlconstruct = '<div class="card"> <img src="' + 'https://a66.agorov.org/' + mx[i][1] + '" width="100%" height="100%" alt="wut?"> <div class="status"> ' + mx[i][3] + ' </div> ';
+          if(mx[i].length>4) {htmlconstruct+= ' <div class="series"> ' + mx[i][4] + ' </div> '}
+          htmlconstruct+=' <div class="discription"> ' + mx[i][0] + ' </div> </div>';
+
+          elem.innerHTML+= htmlconstruct;
+
+        }
+
+
+      }
+
+      function reprocess(html) {
+
+        var mx = [];
+
+        mx.push(html.split('alt=')[1].split("\"")[1]);
+
+        mx.push(html.split('src=')[1].split("\"")[1]);
+
+        mx.push(html.split('href=')[1].split("\"")[1]);
+
+        mx.push(html.split('href="')[1].split(">")[1].split("<")[0].split("[")[1].split("]")[0]);
+
+        if(html.split('href="')[1].split(">")[1].split("<")[0].split("[").length > 2) {
+          mx.push(html.split('href="')[1].split(">")[1].split("<")[0].split("[")[2].split("]")[0]);
+        }
+
+        return mx;
+      }
+
+//-----------------------------------
+
+  function toggleplayerholder(){
+    if(document.getElementById("check_player").checked == true){
+      document.getElementById("playerholder").style.height = "0px";
+      document.getElementById("check_player").checked = false;
+    } else {
+      document.getElementById("playerholder").style.height = "100%";
+      document.getElementById("check_player").checked = true;
+    }
+  }
+
+</script>
+
+
+<div id="cardholder" onscroll="scrolled(this)" class="content">
+
+
 
 </div>
 
 
-<div class="searchbar">
+<div class="searchbar" id="searchbar">
   <input class="search" type="text" name="" value="">
-
+  <input id="check_search" class="none" type="checkbox"/>
 </div>
 
 <div class="dockbar" id="dockbar">
 
   <div class="alveysvisibledock" onclick="func1()">
 
-    <input id="check" type="checkbox"/>
+    <input id="check" class="none" type="checkbox"/>
 
   </div>
 
@@ -131,7 +293,27 @@
         <option value="">test</option>
     </select>
 
+    <button type="button" onclick="avostcontent(1)" name="button">refrash</button>
+
+    <button type="button" onclick="togglesearch()" name="button">toggle search bar</button>
+
+    <button type="button" onclick="toggleplayerholder()" name="button">toggle playerholder</button>
+
   </div>
 
 
 </div>
+
+<div class="playerholder" id="playerholder">
+  <input id="check_player" class="none" type="checkbox"/>
+
+  <button onclick="toggleplayerholder()" type="button" name="button">toggle back</button>
+</div>
+
+<div class="backbutton">
+  <img src="https://raw.githubusercontent.com/VanillaMaster/VanillaMaster.github.io/master/back.png" width="75px" height="75px" alt="wit?">
+</div>
+
+<script>
+  togglesearch();
+</script>
