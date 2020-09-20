@@ -1,0 +1,15 @@
+{
+  "background_color": "purple",
+  "description": "test discript",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "https://vanillamaster.github.io/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "test_name",
+  "short_name": "test_short_name",
+  "start_url": "/"
+}
