@@ -66,6 +66,9 @@
     dragItem.addEventListener("mousemove", drag, false);
 
     async function dragStart(e) {
+
+      holder.style.transition = "none"
+
       if (e.type === "touchstart") {
         //initialX = e.touches[0].clientX - xOffset;
         initialY = e.touches[0].clientY - yOffset;
@@ -81,6 +84,21 @@
 
     async function dragEnd(e) {
       //initialX = currentX;
+
+      holder.style.transition = "all 0.2s linear"
+
+      //holder
+
+      if (currentY < height/2) {
+        currentY = 0;
+        yOffset = 0;
+        holder.style.top = "0px";
+      } else {
+        currentY = height - 100;
+        yOffset = height - 100;
+        holder.style.top = ((height - 100) + "px");
+      }
+
       initialY = currentY;
 
       active = false;
@@ -92,11 +110,12 @@
         e.preventDefault();
 
         if (e.type === "touchmove") {
-          if (e.touches[0].clientY - initialY >= 0 && e.touches[0].clientY - initialY <= height - 100 ) {
-            currentY = e.touches[0].clientY - initialY;
+          let tmp = e.touches[0].clientY - initialY;
+          if (tmp >= 0 && tmp <= height - 100 ) {
+            currentY = tmp;
             yOffset = currentY;
           } else {
-            if (e.touches[0].clientY - initialY < 0) {
+            if (tmp < 0) {
               currentY = 0;
               yOffset = currentY;
             } else {
@@ -106,11 +125,12 @@
 
           }
         } else {
-          if (e.clientY - initialY >= 0 && e.clientY - initialY <= height - 100 ) {
-                    currentY = e.clientY - initialY;
+          let tmp = e.clientY - initialY;
+          if (tmp >= 0 && tmp <= height - 100 ) {
+                    currentY = tmp;
                     yOffset = currentY;
                   } else {
-                    if (e.clientY - initialY < 0) {
+                    if (tmp < 0) {
                       currentY = 0;
                       yOffset = currentY;
                     } else {
