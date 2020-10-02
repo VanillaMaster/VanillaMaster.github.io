@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport"content="width=device-width,initial-scale=1.0,user-scalable=no" />
+  <title>Drag/Drop/Bounce</title>
+  <style>
+
+    .item {
+      width: 100%;
+      height: 100px;
+      background-color: rgb(245, 230, 99);
+      touch-action: none;
+      user-select: none;
+
+    }
+
+    .itemholder{
+      top: 50%;
+      height: 100%;
+      width: 100%;
+      background-color: whitesmoke;
+      position: absolute;
+    }
+
+  </style>
+</head>
+
+<body style="overflow: hidden;margin: 0;">
+
+    <h1>random content</h1>
+
+  <div class="itemholder" id="holder">
+      <div class="item" id="item">
+
+      </div>
+      <div>
+        <h1>random content too</h1>
+      </div>
+  </div>
+
+  <script>
+    var dragItem = document.getElementById("item");
+
+    var holder = document.getElementById("holder");
+
+    var active = false;
+    //var currentX;
+    var currentY;
+    //var initialX;
+    var initialY;
+    //var xOffset = 0;
+
+    var height = window.innerHeight;
+
+    var yOffset = height/2;
+
+
+
+    dragItem.addEventListener("touchstart", dragStart, false);
+    dragItem.addEventListener("touchend", dragEnd, false);
+    dragItem.addEventListener("touchmove", drag, false);
+
+    dragItem.addEventListener("mousedown", dragStart, false);
+    dragItem.addEventListener("mouseup", dragEnd, false);
+    dragItem.addEventListener("mousemove", drag, false);
+
+    async function dragStart(e) {
+      if (e.type === "touchstart") {
+        //initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+      } else {
+        //initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+      }
+
+      if (e.target === dragItem) {
+        active = true;
+      }
+    }
+
+    async function dragEnd(e) {
+      //initialX = currentX;
+      initialY = currentY;
+
+      active = false;
+    }
+
+    async function drag(e) {
+      if (active) {
+
+        e.preventDefault();
+
+        if (e.type === "touchmove") {
+          if (e.touches[0].clientY - initialY >= 0 && e.touches[0].clientY - initialY <= height - 100 ) {
+            currentY = e.touches[0].clientY - initialY;
+            yOffset = currentY;
+          } else {
+            if (e.touches[0].clientY - initialY < 0) {
+              currentY = 0;
+              yOffset = currentY;
+            } else {
+              currentY = height - 100;
+              yOffset = currentY;
+            }
+
+          }
+        } else {
+          if (e.clientY - initialY >= 0 && e.clientY - initialY <= height - 100 ) {
+                    currentY = e.clientY - initialY;
+                    yOffset = currentY;
+                  } else {
+                    if (e.clientY - initialY < 0) {
+                      currentY = 0;
+                      yOffset = currentY;
+                    } else {
+                      currentY = height - 100;
+                      yOffset = currentY;
+                    }
+
+                  }
+        }
+
+        holder.style.top = currentY + "px";
+
+      }
+    }
+
+  </script>
+</body>
+
+</html>
