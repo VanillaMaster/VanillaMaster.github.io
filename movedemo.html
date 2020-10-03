@@ -1,152 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr" class="max">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=0" />
+    <title></title>
 
-<head>
-  <meta name="viewport"content="width=device-width,initial-scale=1.0,user-scalable=no" />
-  <title>Drag/Drop/Bounce</title>
-  <style>
+    <style>
+      .max {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
 
-    .item {
-      width: 100%;
-      height: 100px;
-      background-color: rgb(245, 230, 99);
-      touch-action: none;
-      user-select: none;
 
-    }
+  </head class="max">
+  <body class="max" style="overflow: hidden;margin: 0;background-color: green;">
 
-    .itemholder{
-      top: 50%;
-      height: 100%;
-      width: 100%;
-      background-color: whitesmoke;
-      position: absolute;
-    }
 
-  </style>
-</head>
+  <div class="max" style="background: yellow;">
 
-<body style="overflow: hidden;margin: 0;">
+    <h1 style="margin:0;">test</h1>
+    <button type="button" onclick="alert('asd')" name="button">click</button>
 
-    <h1>random content</h1>
+    <div id="1" style="width:50%; height:100%; background: red; opacity:0.5;position:absolute; top:0; overflow:scroll;pointer-events: none;">
 
-  <div class="itemholder" id="holder">
-      <div class="item" id="item">
+      <div style="background:blue;height: 100%;width: 100%;">
+
+        <div id="drag" style="position: absolute; height: 100px;width: 100%; background: white; opacity: 0.5;bottom: 0;pointer-events: all;">
+
+        </div>
 
       </div>
-      <div>
-        <h1>random content too</h1>
+
+      <div style="background:green;height: 100%;width: 100%;pointer-events: all;">
+        <button type="button" onclick="alert('asd2')" name="button">click</button>
       </div>
+
+    </div>
+
   </div>
 
-  <script>
-    var dragItem = document.getElementById("item");
 
-    var holder = document.getElementById("holder");
-
-    var active = false;
-    //var currentX;
-    var currentY;
-    //var initialX;
-    var initialY;
-    //var xOffset = 0;
-
-    var height = window.innerHeight;
-
-    var yOffset = height/2;
+  </body>
 
 
+  <script type="text/javascript">
+    document.getElementById("drag").addEventListener("touchstart", test, false);
+    document.getElementById("drag").addEventListener("touchend", test2, false);
 
-    dragItem.addEventListener("touchstart", dragStart, false);
-    dragItem.addEventListener("touchend", dragEnd, false);
-    dragItem.addEventListener("touchmove", drag, false);
-
-    dragItem.addEventListener("mousedown", dragStart, false);
-    dragItem.addEventListener("mouseup", dragEnd, false);
-    dragItem.addEventListener("mousemove", drag, false);
-
-    async function dragStart(e) {
-
-      holder.style.transition = "none"
-
-      if (e.type === "touchstart") {
-        //initialX = e.touches[0].clientX - xOffset;
-        initialY = e.touches[0].clientY - yOffset;
-      } else {
-        //initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
-      }
-
-      if (e.target === dragItem) {
-        active = true;
-      }
+    function test(){
+      //console.log("a");
+      document.getElementById("1").style.pointerEvents = "auto";
     }
 
-    async function dragEnd(e) {
-      //initialX = currentX;
-
-      holder.style.transition = "all 0.2s linear"
-
-      //holder
-
-      if (currentY < height/2) {
-        currentY = 0;
-        yOffset = 0;
-        holder.style.top = "0px";
-      } else {
-        currentY = height - 100;
-        yOffset = height - 100;
-        holder.style.top = ((height - 100) + "px");
-      }
-
-      initialY = currentY;
-
-      active = false;
-    }
-
-    async function drag(e) {
-      if (active) {
-
-        e.preventDefault();
-
-        if (e.type === "touchmove") {
-          let tmp = e.touches[0].clientY - initialY;
-          if (tmp >= 0 && tmp <= height - 100 ) {
-            currentY = tmp;
-            yOffset = currentY;
-          } else {
-            if (tmp < 0) {
-              currentY = 0;
-              yOffset = currentY;
-            } else {
-              currentY = height - 100;
-              yOffset = currentY;
-            }
-
-          }
-        } else {
-          let tmp = e.clientY - initialY;
-          if (tmp >= 0 && tmp <= height - 100 ) {
-                    currentY = tmp;
-                    yOffset = currentY;
-                  } else {
-                    if (tmp < 0) {
-                      currentY = 0;
-                      yOffset = currentY;
-                    } else {
-                      currentY = height - 100;
-                      yOffset = currentY;
-                    }
-
-                  }
-        }
-
-        holder.style.top = currentY + "px";
-
-      }
+    function test2(){
+      //console.log("a");
+      document.getElementById("1").style.pointerEvents = "none";
     }
 
   </script>
-</body>
 
 </html>
