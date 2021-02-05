@@ -2,38 +2,36 @@
 
 <style>
 
-.invscrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.invscrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-  .column{
-    width: 100%;
-    display:inline-block;
-    min-height: 500px;
-    vertical-align: top;
-  }
-
-  .columnThemeWhite{
-    background: #ffffff;
+  .ThemeWhite{
     color: #3c4043;
   }
-  .columnThemeWhite div.card{
+
+  .ThemeWhite div.column{
+    background: #ffffff;
+  }
+
+  .ThemeWhite div.card{
     background: #ffffff;
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
   }
 
-  .columnThemeBlack{
-    background: #202124;
+  .ThemeBlack{
     color: #e8eaed;
   }
-  .columnThemeBlack div.card{
+
+  .ThemeBlack div.column{
+    background: #202124;
+  }
+
+  .ThemeBlack div.card{
     background: #313235;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
+  }
+
+  .column{
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
   }
 
   .card{
@@ -94,6 +92,7 @@
     width: 100%;
     height: 100%;
     font-family: 'Open Sans', sans-serif;
+    background: yellow;
   }
 </style>
 
@@ -109,7 +108,7 @@ function hideBigCard(){
 }
 
 function blackTheme() {
-  document.getElementById("column3").setAttribute("class","column columnThemeBlack");
+  document.getElementById("body").setAttribute("class","ThemeBlack");
 }
 
 function generateCard(jsonConfig,id){
@@ -194,19 +193,28 @@ function generateCard(jsonConfig,id){
 
       <div class="imgBorder">
         <div style="top: 50%;left: 50%;transform: translate(-50%, -50%);position: relative;">
-
           <img id="bigImage" onclick="event.stopPropagation();" style="width: auto;height: auto;zoom: 100;max-width: 100%;max-height: 100%;" src="https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg" alt="wut ?">
-
         </div>
-
       </div>
 
     </div>
 
-      <div id="column3" class="column columnThemeWhite">
-        <div class="card" style="text-align: center;">
-          <button onclick="blackTheme();" type="button">black theme</button>
+
+      <div id="body" class="ThemeWhite" style="width: 100%; height: 100%;">
+
+        <div id="column" class="column">
+
+          <div class="card" style="text-align: center;">
+            <button onclick="blackTheme();" type="button">black theme</button>
+          </div>
+
         </div>
+
+
+
+        <div style="width: 100%; height: 60px;background:blue;">
+        </div>
+
       </div>
 
   </body>
@@ -216,9 +224,10 @@ function generateCard(jsonConfig,id){
 <script type="text/javascript">
   //initialization
 
-  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`);
-  
+  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`)
+
   for (var i = 0; i < 10; i++) {
-    generateCard("test","column3");
+    generateCard("test","column");
   }
+
 </script>
