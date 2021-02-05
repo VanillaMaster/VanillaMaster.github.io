@@ -216,8 +216,9 @@ function generateCard(jsonConfig,id){
 <script type="text/javascript">
   //initialization
 
-  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`)
-
-  generateCard("test","column3");
-  generateCard("test","column3");
+  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`);
+  
+  for (var i = 0; i < 10; i++) {
+    generateCard("test","column3");
+  }
 </script>
