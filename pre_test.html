@@ -149,8 +149,12 @@ function hideBigCard(){
     document.getElementById("background").style.display = "none";
 }
 
-function blackTheme() {
-  document.getElementById("body").setAttribute("class","ThemeBlack");
+function changeTheme() {
+  if (document.getElementById("body").getAttribute("class") == "ThemeBlack") {
+    document.getElementById("body").setAttribute("class","ThemeWhite");
+  } else {
+    document.getElementById("body").setAttribute("class","ThemeBlack");
+  }
 }
 
 function generateCard(jsonConfig,id){
@@ -262,7 +266,7 @@ function generateCard(jsonConfig,id){
           <div style="padding: 10px; height: calc(100% - 20px); width: calc(100% - 20px);">
             <button type="button" onclick="document.getElementById('settings').style.height='0px';">X</button>
             <br>
-            <button onclick="blackTheme();" type="button">black theme</button>
+            <button onclick="changeTheme();" type="button">change theme</button>
           </div>
         </div>
 
@@ -277,7 +281,7 @@ function generateCard(jsonConfig,id){
 
   document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`)
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 4; i++) {
     generateCard("test","column");
   }
 
