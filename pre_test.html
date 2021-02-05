@@ -1,319 +1,178 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=0" />
-
-    <title></title>
 
 <style>
 
-
-
-  .searchbar {
- border-radius: 10px;
- background: #ccc;
- height: 44px;
- width: 90%;
- margin: 5%;
- background-color: #f2f2f2;
- border: 2px solid #808080;
-
-
-
- position:absolute;
- top:0;
- left:0;
+.invscrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.content {
-  overflow: scroll;
-
-  background-color: #121212;
-
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left:0;
-  top:0;
+.invscrollbar::-webkit-scrollbar {
+    display: none;
 }
 
-.playerholder {
-  overflow: scroll;
-
-  background-color: #121212;
-
-  width: 100%;
-  height: 0px;
-  position: absolute;
-  left:0;
-  bottom:0;
-
-    transition: all 0.2s linear;
-}
-
-.dockbar {
-
-  transition: all 0.4s linear;
-
-  overflow: hidden;
-
-  background-color: #444963;
-
-  position: absolute;
-  left: 0; bottom: 0; right: 0;
-
-  margin-left: 2%;
-  margin-right: 2%;
-
-  width: 96%;
-  height: 10%;
-}
-
-.backbutton {
-
-  transition: all 0.4s linear;
-
-  position: absolute;
-  bottom: 40px; right: 30px;
-
-
-}
-
-
-.search {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-  font-size: 1.2em;
-  border: 0px;
-  padding: 0px;
-  margin: 5px;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
-  height: 80%;
-}
-
-.alveysvisibledock {
-    background-color: #f2f2f2;
-
-    margin: 5px;
-    width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
-    height: 60px;
-}
-
-.card {
-  background-color: #3d1920;
-  width: 47.5%;
-  margin: 1%;
-  display: inline-block;
-  position: relative;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.discription{
-  color: #e0e0e0;
-  background-color: #1f1f1f;
-  width: 100%;
-  height: auto;
-  bottom: 0;
-  position: absolute;
-  padding: 1px;
-}
-
-.series{
-  border-radius: 2px;
-  color: #7d7d7d;
-  background-color: #1f1f1f;
-  width: auto;
-  height: auto;
-  top: 30px;
-  right: 0;
-  position: absolute;
-  padding: 1px;
-}
-
-.none {
-  display: none;
-}
-
-.status{
-  border-radius: 2px;
-  color: #7d7d7d;
-  background-color: #1f1f1f;
-  width: auto;
-  height: auto;
-  top: 5px;
-  right: 0;
-  position: absolute;
-  padding: 1px;
-}
-
-</style>
-
-<script>
-  function func1() {
-    if (document.getElementById("check").checked == false) {
-      document.getElementById("dockbar").style.height = "75%";
-      document.getElementById("check").checked = true;
-    } else {
-      document.getElementById("dockbar").style.height = "10%";
-      document.getElementById("check").checked = false;
-    }
-
+  .column{
+    width: 100%;
+    display:inline-block;
+    background: yellow;
+    min-height: 500px;
+    vertical-align: top;
   }
-</script>
+  .card{
+    margin: 10px;
+    height: auto;
+    background: grey;
+  }
+  .image{
+    display: block;
+    width: 100%;
+    width: -moz-available;          /* WebKit игнор. */
+    width: -webkit-fill-available;  /* Mozilla игнор. */
+    width: fill-available;
+    padding: 5px;
+    padding-bottom: 0;
+  }
+  .subImage{
+    max-width: 100%;
+    max-height: 140px;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+  .subImageHolder{
+    display: inline-flex;
+    max-height: 145px;
+    width: auto;
+  }
 
 
+  .subImageContainer{
+    max-height: 150px;
+    padding: 2.5px;
+    font-size: 0;
+    text-align: start;
+  }
+</style>
 
 <script type="text/javascript">
 
-  var currentpage = 1;
+function showBigCard(src){
+  document.getElementById("bigImage").src = src;
+  document.getElementById("background").style.display = "block";
+}
 
-      function scrolled(o)
-      {
-          //visible height + pixel scrolled = total height
-          if(o.offsetHeight + o.scrollTop > o.scrollHeight - 50)
-          {
-              currentpage++;
-              avostcontent(currentpage);
-
-          }
-      }
-
-      function togglesearch() {
-        if(document.getElementById("check_search").checked == true){
-          document.getElementById("searchbar").style.display = "block";
-          document.getElementById("check_search").checked = false;
-        } else {
-          document.getElementById("searchbar").style.display = "none";
-          document.getElementById("check_search").checked = true;
-        }
-      }
+function hideBigCard(){
+    document.getElementById("background").style.display = "none";
+}
 
 
-      function avostcontent(page){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', `gethtml?=https://a66.agorov.org/page/` + page, false);
-        xhr.send();
-        var html = xhr.responseText;
+function generateCard(jsonConfig,id){
+  let card = document.createElement("div");
+  card.setAttribute("class","card");
 
-        var mx = [];
+  let discription = document.createElement("div");
+  discription.setAttribute("style","padding: 5px;");
+  discription.textContent="discript";
 
-        var htmlArray = html.split(' <div class="shortstoryHead">');
+  card.appendChild(discription);
 
-        htmlArray.splice(0, 1);
+  let image = document.createElement("img");
+  image.setAttribute("class","image");
+  let imgURL = "https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg";
+  image.setAttribute("src",imgURL);
+  image.setAttribute("onclick",`showBigCard('${imgURL}')`);
 
-        var count = htmlArray.length;
+  card.appendChild(image);
 
-        for (var i = 0; i < count; i++) {
-          mx.push(reprocess(htmlArray[i]));
-        }
+  let subImageContainer = document.createElement("div");
+  subImageContainer.setAttribute("class","subImageContainer");
 
+  const amount = 6;
 
-        var elem = document.getElementById("cardholder");
+  for (var i = 0; i < amount; i++) {
 
-        for (var i = 0; i < mx.length; i++) {
+    let subImage = document.createElement("div");
+    subImage.setAttribute("class","subImageHolder");
+    subImage.setAttribute("style",`max-width: ${Math.floor(10000/amount)/100}%`);
 
-          let htmlconstruct = '<div class="card"> <img src="' + 'https://a66.agorov.org/' + mx[i][1] + '" width="100%" height="100%" alt="wut?"> <div class="status"> ' + mx[i][3] + ' </div> ';
-          if(mx[i].length>4) {htmlconstruct+= ' <div class="series"> ' + mx[i][4] + ' </div> '}
-          htmlconstruct+=' <div class="discription"> ' + mx[i][0] + ' </div> </div>';
+    let padding = document.createElement("div");
+    padding.setAttribute("style","padding: 2.5px;");
 
-          elem.innerHTML+= htmlconstruct;
+    let subImageIMG = document.createElement("img");
 
-        }
+    let imgURL = "https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg";
 
+    subImageIMG.setAttribute("class","subImage");
+    subImageIMG.setAttribute("src",imgURL);
+    subImageIMG.setAttribute("onclick",`showBigCard('${imgURL}')`);
 
-      }
+    padding.appendChild(subImageIMG);
 
-      function reprocess(html) {
+    subImage.appendChild(padding);
 
-        var mx = [];
+    subImageContainer.appendChild(subImage);
 
-        mx.push(html.split('alt=')[1].split("\"")[1]);
-
-        mx.push(html.split('src=')[1].split("\"")[1]);
-
-        mx.push(html.split('href=')[1].split("\"")[1]);
-
-        mx.push(html.split('href="')[1].split(">")[1].split("<")[0].split("[")[1].split("]")[0]);
-
-        if(html.split('href="')[1].split(">")[1].split("<")[0].split("[").length > 2) {
-          mx.push(html.split('href="')[1].split(">")[1].split("<")[0].split("[")[2].split("]")[0]);
-        }
-
-        return mx;
-      }
-
-//-----------------------------------
-
-  function toggleplayerholder(){
-    if(document.getElementById("check_player").checked == true){
-      document.getElementById("playerholder").style.height = "0px";
-      document.getElementById("check_player").checked = false;
-    } else {
-      document.getElementById("playerholder").style.height = "100%";
-      document.getElementById("check_player").checked = true;
-    }
   }
+
+
+  card.appendChild(subImageContainer);
+
+  let tags = document.createElement("div");
+
+  tags.setAttribute("style","padding: 5px;");
+  tags.textContent="tags";
+
+  card.appendChild(tags);
+
+  document.getElementById(id).appendChild(card);
+
+
+
+}
+
 
 </script>
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-<div id="cardholder" onscroll="scrolled(this)" class="content">
+<html lang="en" style="width: 100%; height: 100%;font-family: 'Open Sans', sans-serif;">
+  <head>
+    <meta id="meta" charset="utf-8" name="viewport" content="width=375, initial-scale=1">
+    <title></title>
+  </head>
+  <body style="width: 100%; height: 100%; margin: 0;">
 
+    <div id="background" onclick="hideBigCard();" style="width: 100%; height: 100%;z-index: 1;position: fixed;display: none;background: rgba(0,0,0,0.5)">
 
+      <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;width: -webkit-fill-available;height: -webkit-fill-available;margin: 5%;text-align: center;">
+        <div style="top: 50%;left: 50%;transform: translate(-50%, -50%);position: relative;">
 
-</div>
+          <img id="bigImage" onclick="event.stopPropagation();" style="width: auto;height: auto;zoom: 100;max-width: 100%;max-height: 100%;" src="https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg" alt="wut ?">
 
+        </div>
 
-<div class="searchbar" id="searchbar">
-  <input class="search" type="text" name="" value="">
-  <input id="check_search" class="none" type="checkbox"/>
-</div>
+      </div>
 
-<div class="dockbar" id="dockbar">
+    </div>
+      <div class="invscrollbar" style="width: 100%; height: 100%;overflow-y:scroll;">
+        <div style="width:100%;text-align: center;">
 
-  <div class="alveysvisibledock" onclick="func1()">
-
-    <input id="check" class="none" type="checkbox"/>
-
-  </div>
-
-  <hr>
-
-  <div class="">
-
-    <select name="test">
-        <option value="">test</option>
-        <option value="">test</option>
-        <option value="">test</option>
-        <option value="">test</option>
-        <option value="">test</option>
-    </select>
-
-    <button type="button" onclick="avostcontent(1)" name="button">refrash</button>
-
-    <button type="button" onclick="togglesearch()" name="button">toggle search bar</button>
-
-    <button type="button" onclick="toggleplayerholder()" name="button">toggle playerholder</button>
-
-  </div>
+        <div id="column3" class="column">
+      </div>
+    </div>
 
 
-</div>
 
-<div class="playerholder" id="playerholder">
-  <input id="check_player" class="none" type="checkbox"/>
+  </body>
+</html>
 
-  <button onclick="toggleplayerholder()" type="button" name="button">toggle back</button>
-</div>
 
-<div class="backbutton">
-  <img src="https://raw.githubusercontent.com/VanillaMaster/VanillaMaster.github.io/master/back.png" width="75px" height="75px" alt="wit?">
-</div>
+<script type="text/javascript">
+  //initialization
 
-<script>
-  togglesearch();
+  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`)
+
+  generateCard("test","column3");
+  generateCard("test","column3");
 </script>
