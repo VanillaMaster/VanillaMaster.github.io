@@ -14,17 +14,34 @@
   .column{
     width: 100%;
     display:inline-block;
-    background: #202124;
     min-height: 500px;
     vertical-align: top;
   }
+
+  .columnThemeWhite{
+    background: #ffffff;
+    color: #3c4043;
+  }
+  .columnThemeWhite div.card{
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+  }
+
+  .columnThemeBlack{
+    background: #202124;
+    color: #e8eaed;
+  }
+  .columnThemeBlack div.card{
+    background: #313235;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
+  }
+
   .card{
     margin: 10px;
     height: auto;
-    background: #313235;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
     border-radius: 8px;
   }
+
   .image{
     display: block;
     width: 100%;
@@ -73,6 +90,11 @@
 
     margin: 5%;text-align: center;
   }
+  .html{
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+  }
 </style>
 
 <script type="text/javascript">
@@ -86,6 +108,9 @@ function hideBigCard(){
     document.getElementById("background").style.display = "none";
 }
 
+function blackTheme() {
+  document.getElementById("column3").setAttribute("class","column columnThemeBlack");
+}
 
 function generateCard(jsonConfig,id){
   let card = document.createElement("div");
@@ -158,7 +183,7 @@ function generateCard(jsonConfig,id){
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-<html lang="en" style="width: 100%; height: 100%;font-family: 'Open Sans', sans-serif;color: #e8eaed;">
+<html id="html" lang="en" class="html">
   <head>
     <meta id="meta" charset="utf-8" name="viewport" content="width=375, initial-scale=1">
     <title></title>
@@ -177,13 +202,12 @@ function generateCard(jsonConfig,id){
       </div>
 
     </div>
-      <div class="invscrollbar" style="width: 100%; height: 100%;overflow-y:scroll;">
 
-        <div id="column3" class="column">
+      <div id="column3" class="column columnThemeWhite">
+        <div class="card" style="text-align: center;">
+          <button onclick="blackTheme();" type="button">black theme</button>
+        </div>
       </div>
-
-
-
 
   </body>
 </html>
