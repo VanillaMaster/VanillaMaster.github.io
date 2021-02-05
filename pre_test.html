@@ -14,14 +14,16 @@
   .column{
     width: 100%;
     display:inline-block;
-    background: yellow;
+    background: #202124;
     min-height: 500px;
     vertical-align: top;
   }
   .card{
     margin: 10px;
     height: auto;
-    background: grey;
+    background: #313235;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
+    border-radius: 8px;
   }
   .image{
     display: block;
@@ -119,7 +121,8 @@ function generateCard(jsonConfig,id){
 
     let subImageIMG = document.createElement("img");
 
-    let imgURL = "https://sun9-17.userapi.com/impg/4tg2k1WlegX06xixItRZC65BJjv2eP2hpOzd4g/W8dID-NZKTk.jpg?size=1080x772&quality=96&proxy=1&sign=1a199e6979cc8ecda20dd1b284020643&type=album";
+    let imgURL = "https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg";
+    imgURL = "https://sun9-17.userapi.com/impg/4tg2k1WlegX06xixItRZC65BJjv2eP2hpOzd4g/W8dID-NZKTk.jpg?size=1080x772&quality=96&proxy=1&sign=1a199e6979cc8ecda20dd1b284020643&type=album";
 
     subImageIMG.setAttribute("class","subImage");
     subImageIMG.setAttribute("src",imgURL);
@@ -155,7 +158,7 @@ function generateCard(jsonConfig,id){
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-<html lang="en" style="width: 100%; height: 100%;font-family: 'Open Sans', sans-serif;">
+<html lang="en" style="width: 100%; height: 100%;font-family: 'Open Sans', sans-serif;color: #e8eaed;">
   <head>
     <meta id="meta" charset="utf-8" name="viewport" content="width=375, initial-scale=1">
     <title></title>
@@ -175,11 +178,10 @@ function generateCard(jsonConfig,id){
 
     </div>
       <div class="invscrollbar" style="width: 100%; height: 100%;overflow-y:scroll;">
-        <div style="width:100%;text-align: center;">
 
         <div id="column3" class="column">
       </div>
-    </div>
+
 
 
 
