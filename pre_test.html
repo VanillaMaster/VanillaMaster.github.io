@@ -74,6 +74,7 @@
     width: 100%;
     bottom: 0;
     transition: height 0.2s;
+    border-radius: 10px 10px 0 0;
   }
 
   .card{
@@ -258,9 +259,11 @@ function generateCard(jsonConfig,id){
         </div>
 
         <div id="settings" class="popUpBar" style="height: 0px;">
-          <button type="button" onclick="document.getElementById('settings').style.height='0px';">X</button>
-          <br>
-          <button onclick="blackTheme();" type="button">black theme</button>
+          <div style="padding: 10px; height: calc(100% - 20px); width: calc(100% - 20px);">
+            <button type="button" onclick="document.getElementById('settings').style.height='0px';">X</button>
+            <br>
+            <button onclick="blackTheme();" type="button">black theme</button>
+          </div>
         </div>
 
       </div>
