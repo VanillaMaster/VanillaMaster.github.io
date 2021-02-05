@@ -84,6 +84,15 @@
     border-radius: 8px;
   }
 
+  .tag{
+    display: inline-block;
+    background: orange;
+    margin: 1px 2px 1px 2px;
+    padding: 0 8px 0 8px;
+    border-radius: 10px;
+    color: white;
+  }
+
   .image{
     display: block;
     width: 100%;
@@ -213,7 +222,14 @@ function generateCard(jsonConfig,id){
   let tags = document.createElement("div");
 
   tags.setAttribute("style","padding: 5px;");
-  tags.textContent="tags";
+  //tags.textContent="tags";
+
+  for (var i = 0; i < 5; i++) {
+    let tag = document.createElement("div");
+    tag.textContent = "tag";
+    tag.setAttribute("class","tag");
+    tags.appendChild(tag);
+  }
 
   card.appendChild(tags);
 
