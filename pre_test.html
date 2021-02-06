@@ -296,9 +296,15 @@ function generateCard(jsonConfig,id){
 
         <div id="settings" class="popUpBar" style="height: 0px;z-index: 3;">
           <div style="padding: 10px; height: calc(100% - 40px); width: calc(100% - 20px);">
-            <button type="button" onclick="hideSettings();">X</button>
-            <br>
+
+            <div style="text-align: center;font-size: 25px;">
+              Settings
+            </div>
+
+            <div onclick="hideSettings();" style="right: 10px;position: absolute;top: 5px;font-size: 20px;">X</div>
+
             <button onclick="changeTheme();" type="button">change theme</button>
+
           </div>
         </div>
 
