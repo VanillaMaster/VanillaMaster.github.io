@@ -61,6 +61,49 @@ function hideFilter() {
   document.getElementById('filter').style.height='0px';
 }
 
+function resetFilters() {
+  let tags = document.getElementsByClassName("checkBox");
+  for (var i = 0; i < tags.length; i++) {
+    tags[i].checked = false;
+  }
+}
+
+function applyFilters() {
+  matchFilter();
+  hideFilter();
+}
+
+async function matchFilter() {
+  let tags = document.getElementsByClassName("checkBox");
+  let selectedTags = [];
+
+  for (var i = 0; i < tags.length; i++) {
+    if (tags[i].checked) {
+      selectedTags.push(tags[i].getAttribute("data"));
+    }
+  }
+
+  console.log(selectedTags);
+
+  let cards = document.getElementsByClassName("card");
+
+  for (var i = 0; i < cards.length; i++) {
+    let cardTags = cards[i].getAttribute("tags");
+
+    let displayStatus = "block";
+
+    for (var j = 0; j < selectedTags.length; j++) {
+      if (cardTags.indexOf(selectedTags[j],0) == -1) {
+        displayStatus = "none";
+      }
+    }
+
+    cards[i].style.display = displayStatus;
+
+  }
+
+}
+
 function generateCard(jsonConfig,id){
   let card = document.createElement("div");
   card.setAttribute("class","card");

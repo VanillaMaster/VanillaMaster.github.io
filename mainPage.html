@@ -75,37 +75,38 @@
           <div style="padding: 10px; height: calc(100% - 40px); width: calc(100% - 20px);">
 
             <div style="text-align: center;font-size: 25px;">
-              Filter
+              Filter (WIP)
             </div>
 
             <div onclick="hideFilter();" style="right: 10px;position: absolute;top: 5px;font-size: 20px;">X</div>
 
-            <br>
-
-            <div style="text-align: center;">
-              WIP
+            <div onclick="applyFilters();" style="position: absolute;top: 230px;height: 25px;right: 10px;font-size: 16px;">
+              Apply
             </div>
 
-            <br>
+            <div onclick="resetFilters();" style="position: absolute;top: 230px;height: 25px;left: 10px;font-size: 16px;">
+              Reset all
+            </div>
+
 
             <label class="tagCheckBox">
-              <input type="checkbox">
+              <input class="checkBox" data="deep" type="checkbox">
               <span>
-                tag 1
+                deep
               </span>
             </label>
 
             <label class="tagCheckBox">
-              <input type="checkbox">
+              <input class="checkBox" data="dark" type="checkbox">
               <span>
-                tag 2
+                dark
               </span>
             </label>
 
             <label class="tagCheckBox">
-              <input type="checkbox">
+              <input class="checkBox" data="fantasy" type="checkbox">
               <span>
-                tag 3
+                fantasy
               </span>
             </label>
 
@@ -134,12 +135,17 @@
   data["name"] = "testName";
   data["subLinks"] = `${link};${link};${link};${link}`;
   data["mainLink"] = "https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg";
-  data["tags"] = "tag1;tag2;tag3";
+  data["tags"] = "deep";
 
   console.log(JSON.stringify(data));
 
-  for (var i = 0; i < 4; i++) {
     generateCard(data,"column");
-  }
+    data["tags"] = "dark";
+    generateCard(data,"column");
+    data["tags"] = "fantasy";
+    generateCard(data,"column");
+    data["tags"] = "deep;dark;fantasy";
+    generateCard(data,"column");
+
 
 </script>
