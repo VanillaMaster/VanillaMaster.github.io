@@ -68,6 +68,11 @@ function resetFilters() {
   }
 }
 
+function resetAllFilters() {
+  resetFilters();
+  applyFilters();
+}
+
 function applyFilters() {
   matchFilter();
   hideFilter();
