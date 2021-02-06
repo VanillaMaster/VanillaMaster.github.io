@@ -144,6 +144,10 @@
 
 <script type="text/javascript">
 
+function getCookieValue(name) {
+    return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
+}
+
 function showBigCard(src){
   document.getElementById("bigImage").src = src;
   document.getElementById("background").style.display = "block";
@@ -156,11 +160,22 @@ function hideBigCard(){
 }
 
 function changeTheme() {
-  if (document.getElementById("body").getAttribute("class") == "ThemeBlack") {
+  if (getCookieValue("theme") == "black") {
     document.getElementById("body").setAttribute("class","ThemeWhite");
+    document.cookie = "theme=white";
   } else {
     document.getElementById("body").setAttribute("class","ThemeBlack");
+    document.cookie = "theme=black";
   }
+}
+
+function loadTheme() {
+  if (getCookieValue("theme") == "black") {
+    document.getElementById("body").setAttribute("class","ThemeBlack");
+  } else {
+    document.getElementById("body").setAttribute("class","ThemeWhite");
+  }
+
 }
 
 function showSettings() {
@@ -317,7 +332,9 @@ function generateCard(jsonConfig,id){
 <script type="text/javascript">
   //initialization
 
-  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`)
+  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`);
+
+  loadTheme();
 
   for (var i = 0; i < 4; i++) {
     generateCard("test","column");
