@@ -11,6 +11,11 @@
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
 
+.ThemeWhite div.cardButton{
+  background: #ffffff;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
 .ThemeWhite div.dockBar{
   background: #ffffff;
   box-shadow: 0 -2px 3px 0 rgb(60 64 67 / 30%)
@@ -34,6 +39,11 @@
 }
 
 .ThemeBlack div.card{
+  background: #313235;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
+}
+
+.ThemeBlack div.cardButton{
   background: #313235;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
 }
@@ -79,6 +89,15 @@
   margin: 10px;
   height: auto;
   border-radius: 8px;
+}
+
+.cardButton{
+  margin: 10px;
+  height: auto;
+  border-radius: 10px;
+  display: inline;
+  padding: 0 10px 0 10px;
+  font-size: 25px;
 }
 
 .tag{
@@ -155,4 +174,9 @@
 
 .tagCheckBox input:checked + span {
   background-color: orange;
+}
+
+.section{
+  width: 100%;
+  height: auto;
 }

@@ -33,32 +33,21 @@ function loadTheme() {
 }
 
 function hideAllPopUp() {
-  hideSettings();
-  hideFilter();
+  hidePopUp("filter");
+  hidePopUp("profile");
+  hidePopUp("settings");
 }
 
-function showSettings() {
+function showPopUp(id) {
   document.getElementById('settingsBackground').style.display='block';
   document.getElementById('BackgroundColor').style.opacity='0.5';
-  document.getElementById('settings').style.height='280px';
+  document.getElementById(id).style.height='280px';
 }
 
-function showFilter() {
-  document.getElementById('settingsBackground').style.display='block';
-  document.getElementById('BackgroundColor').style.opacity='0.5';
-  document.getElementById('filter').style.height='280px';
-}
-
-function hideSettings() {
+function hidePopUp(id) {
   document.getElementById('settingsBackground').style.display='none';
   document.getElementById('BackgroundColor').style.opacity='0';
-  document.getElementById('settings').style.height='0px';
-}
-
-function hideFilter() {
-  document.getElementById('settingsBackground').style.display='none';
-  document.getElementById('BackgroundColor').style.opacity='0';
-  document.getElementById('filter').style.height='0px';
+  document.getElementById(id).style.height='0px';
 }
 
 function resetFilters() {
@@ -75,7 +64,7 @@ function resetAllFilters() {
 
 function applyFilters() {
   matchFilter();
-  hideFilter();
+  hidePopUp("filter");
 }
 
 async function matchFilter() {
