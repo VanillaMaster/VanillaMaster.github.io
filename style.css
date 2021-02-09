@@ -1,10 +1,5 @@
 .ThemeWhite{
   color: #3c4043;
-  margin: 0;
-  width: 100%;
-}
-
-.ThemeWhite div.column{
   background: #ffffff;
 }
 
@@ -34,11 +29,6 @@
 
 .ThemeBlack{
   color: #e8eaed;
-  margin: 0;
-  width: 100%;
-}
-
-.ThemeBlack div.column{
   background: #202124;
 }
 
@@ -183,4 +173,9 @@
 .section{
   width: 100%;
   height: auto;
+}
+
+.body{
+  margin: 0;
+  width: 100%;
 }

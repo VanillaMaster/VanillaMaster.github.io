@@ -21,19 +21,19 @@ function hideBigCard(allowScroll){
 
 function changeTheme() {
   if (getCookieValue("theme") == "black") {
-    document.getElementById("body").setAttribute("class","ThemeWhite");
+    document.getElementById("html").setAttribute("class","ThemeWhite");
     document.cookie = "theme=white";
   } else {
-    document.getElementById("body").setAttribute("class","ThemeBlack");
+    document.getElementById("html").setAttribute("class","ThemeBlack");
     document.cookie = "theme=black";
   }
 }
 
 function loadTheme() {
   if (getCookieValue("theme") == "black") {
-    document.getElementById("body").setAttribute("class","ThemeBlack");
+    document.getElementById("html").setAttribute("class","ThemeBlack");
   } else {
-    document.getElementById("body").setAttribute("class","ThemeWhite");
+    document.getElementById("html").setAttribute("class","ThemeWhite");
   }
 
 }
@@ -76,7 +76,7 @@ function resetAllFilters() {
 
 function applyFilters() {
   matchFilter();
-  hidePopUp("filter");
+  hidePopUp("filter",true);
 }
 
 async function matchFilter() {
