@@ -5,11 +5,13 @@ function getCookieValue(name) {
 function showBigCard(src){
   document.getElementById("bigImage").src = src;
   document.getElementById("background").style.display = "block";
+  document.getElementById('settingsBackground').style.display='block';
   document.getElementById('BackgroundColor').style.opacity='0.5';
 }
 
 function hideBigCard(){
     document.getElementById("background").style.display = "none";
+    document.getElementById('settingsBackground').style.display='none';
     document.getElementById('BackgroundColor').style.opacity='0';
 }
 
@@ -33,6 +35,7 @@ function loadTheme() {
 }
 
 function hideAllPopUp() {
+  hideBigCard();
   hidePopUp("filter");
   hidePopUp("profile");
   hidePopUp("settings");
