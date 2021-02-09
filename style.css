@@ -1,5 +1,7 @@
 .ThemeWhite{
   color: #3c4043;
+  margin: 0;
+  width: 100%;
 }
 
 .ThemeWhite div.column{
@@ -32,6 +34,8 @@
 
 .ThemeBlack{
   color: #e8eaed;
+  margin: 0;
+  width: 100%;
 }
 
 .ThemeBlack div.column{
