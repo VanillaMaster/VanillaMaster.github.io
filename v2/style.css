@@ -226,11 +226,14 @@
   height: -webkit-fill-available;
   height: fill-available;
 
-  margin: 5%;text-align: center;
+  margin: 5%;
+  display: flex;
+  align-items: center;
 }
 
 .tagCheckBox{
   margin: 0 2px 0 2px;
+  user-select: none;
 }
 
 .checkBox{
