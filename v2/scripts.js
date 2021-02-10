@@ -41,6 +41,13 @@ function changeLayout() {
     document.cookie = "layout=mobile";
     isPcLayout = false;
   }
+
+  // TEMP
+
+  if (confirm('page reload required, do it now ?')) {
+    document.location.reload();
+  }
+
 }
 
 function loadTheme() {
