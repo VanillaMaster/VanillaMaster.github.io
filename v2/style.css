@@ -169,6 +169,18 @@
   border-radius: 10px;
 }
 
+.dockBarButton{
+  display: inline-block;
+  width: 60px;
+  height: 52px;
+  text-align: center;
+  font-size: 15px;
+  padding-top: 8px;
+  line-height: 15px;
+
+  user-select:none;
+}
+
 .image{
   display: block;
   width: 100%;
