@@ -31,22 +31,35 @@ function changeTheme() {
   }
 }
 
-function changeLayout() {
-  if (getCookieValue("layout") == "mobile") {
-    document.getElementById("html").setAttribute("class",`${getCookieValue("theme")} pc`);
-    document.cookie = "layout=pc";
-    isPcLayout = true;
-  } else {
-    document.getElementById("html").setAttribute("class",`${getCookieValue("theme")} mobile`);
-    document.cookie = "layout=mobile";
-    isPcLayout = false;
-  }
+async function changeLayout() {
 
-  // TEMP
+  hideAllPopUp();
 
-  if (confirm('page reload required, do it now ?')) {
-    document.location.reload();
-  }
+  setTimeout(function(){
+
+    let elem = document.getElementsByClassName("popUpBar");
+
+    for (var i = 0; i < elem.length; i++) {
+      elem[i].setAttribute("style","z-index: 3;transition: none;");
+    }
+
+    if (getCookieValue("layout") == "mobile") {
+      document.getElementById("html").setAttribute("class",`${getCookieValue("theme")} pc`);
+      document.cookie = "layout=pc";
+      isPcLayout = true;
+    } else {
+      document.getElementById("html").setAttribute("class",`${getCookieValue("theme")} mobile`);
+      document.cookie = "layout=mobile";
+      isPcLayout = false;
+    }
+
+    setTimeout(function(){
+      let elem = document.getElementsByClassName("popUpBar");
+      for (var i = 0; i < elem.length; i++) {
+        elem[i].setAttribute("style","z-index: 3;");
+      }
+    }, 50);
+  }, 200);
 
 }
 
@@ -118,8 +131,8 @@ function resetAllFilters() {
 }
 
 function applyFilters() {
-  matchFilter();
   hidePopUp("filter",true);
+  matchFilter();
 }
 
 async function matchFilter() {
@@ -139,15 +152,15 @@ async function matchFilter() {
   for (var i = 0; i < cards.length; i++) {
     let cardTags = cards[i].getAttribute("tags");
 
-    let displayStatus = "block";
+    let displayStatus = "";
 
     for (var j = 0; j < selectedTags.length; j++) {
       if (cardTags.indexOf(selectedTags[j],0) == -1) {
-        displayStatus = "none";
+        displayStatus = "display: none;";
       }
     }
 
-    cards[i].style.display = displayStatus;
+    cards[i].setAttribute("style",displayStatus);
 
   }
 

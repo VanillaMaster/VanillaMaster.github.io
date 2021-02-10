@@ -85,7 +85,7 @@
 }
 
 .column{
-
+  text-align: center;
 }
 
 .mobile .column{
@@ -97,7 +97,7 @@
 }
 
 .section{
-
+  text-align: start;
 }
 
 .mobile .section{
@@ -105,7 +105,7 @@
 }
 
 .pc .section{
-  width: 300px;
+  font-size: 0;
 }
 
 .popUpBar{
@@ -150,6 +150,12 @@
   margin: 0 10px 10px 10px;
   height: auto;
   border-radius: 8px;
+}
+
+.pc .card{
+  width: calc(100% / 3 - 20px);
+  display: inline-block;
+  font-size: initial;
 }
 
 .cardButton{
