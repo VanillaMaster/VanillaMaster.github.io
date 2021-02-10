@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="style.css">
+<script src="./scripts.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+
+<html id="html" class="ThemeWhite" lang="en" style="font-family: 'Open Sans', sans-serif;">
+  <head>
+    <meta id="meta" charset="utf-8" name="viewport" content="width=375, initial-scale=1">
+    <title></title>
+  </head>
+  <body id="body" class="body" style="">
+
+
+        <div id="column" class="column">
+
+          <div id="section1" class="section"></div>
+          <div id="section2" class="section"></div>
+
+          <div style="width: 100%;height: 45px;text-align: center;">
+            <div onclick="alert('nothing to load')"; class="cardButton">Load more</div>
+          </div>
+
+
+        </div>
+
+
+        <div class="dockBar">
+
+          <div onclick="showPopUp('profile');" style="display: inline-block;width: 60px;height: 52px;text-align: center;font-size: 15px;padding-top: 8px;line-height: 15px;">
+            <svg height="30" width="30" viewBox="0 0 24 24" >
+              <path d="M0,0h24v24H0V0z" fill="none"/><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+            </svg>
+            profile
+          </div>
+
+          <div onclick="showPopUp('filter');" style="display: inline-block;width: 60px;height: 52px;text-align: center;font-size: 15px;padding-top: 8px;line-height: 15px;">
+            <svg height="30" width="30" viewBox="0 0 24 24" >
+              <path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24 M24,24H0" fill="none"/><path d="M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z"/><path d="M0,0h24v24H0V0z" fill="none"/>
+            </svg>
+            filter
+          </div>
+
+          <div onclick="showPopUp('settings');" style="display: inline-block;width: 60px;height: 52px;text-align: center;font-size: 15px;padding-top: 8px;line-height: 15px;">
+            <svg height="30" width="30" viewBox="0 0 24 24" >
+              <path d="M0,0h24v24H0V0z" fill="none"/><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+            </svg>
+            settings
+          </div>
+
+        </div>
+
+
+        <div id="background" style="top: 0;width: 100%; height: 100%;z-index: 3;position: fixed;display: none;pointer-events: none;">
+
+          <div class="imgBorder">
+            <div style="top: 50%;left: 50%;transform: translate(-50%, -50%);position: relative;">
+              <img id="bigImage" style="width: auto;height: auto;zoom: 100;max-width: 100%;max-height: 100%;pointer-events: auto;" src="https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg" alt="wut ?">
+            </div>
+          </div>
+
+        </div>
+
+        <div id="BackgroundColor" style="z-index: 1;pointer-events: none;position: fixed;width:100%;height:100%;background: black;top: 0;opacity: 0;-webkit-transition: opacity 0.5s ease-in-out;-moz-transition: opacity 0.5s ease-in-out;transition: opacity 0.5s ease-in-out;"></div>
+        <div id="settingsBackground" onclick="hideAllPopUp();" style="z-index: 2;position: fixed;width:100%;height:100%;top: 0;display: none;"></div>
+
+
+        <div id="settings" class="popUpBar" style="z-index: 3;">
+          <div class="popUpContainer">
+
+            <div style="text-align: center;font-size: 25px;">
+              Settings
+            </div>
+
+            <div onclick="hidePopUp('settings',true);" style="right: 10px;position: absolute;top: 5px;font-size: 20px;">X</div>
+
+            <button onclick="changeTheme();" type="button">change theme</button>
+            <br>
+            <button onclick="changeLayout();" type="button">change layout</button>
+            <br>
+            <button onclick="toggleFullScreen();" type="button">toggle fullScreen mode</button>
+            <br>
+
+          </div>
+        </div>
+
+
+
+        <div id="filter" class="popUpBar" style="z-index: 3;">
+          <div class="popUpContainer">
+
+            <div style="text-align: center;font-size: 25px;">
+              Filter
+            </div>
+
+            <div onclick="hidePopUp('filter',true);" style="right: 10px;position: absolute;top: 5px;font-size: 20px;">X</div>
+            <div onclick="resetFilters();" style="left: 10px;position: absolute;top: 7.5px;font-size: 16px;">reset</div>
+
+            <div onclick="applyFilters();" style="position: absolute;top: 230px;height: 25px;right: 10px;font-size: 16px;">
+              Apply
+            </div>
+
+            <div onclick="resetAllFilters();" style="position: absolute;top: 230px;height: 25px;left: 10px;font-size: 16px;">
+              Reset all
+            </div>
+
+
+            <label class="tagCheckBox">
+              <input class="checkBox" data="deep" type="checkbox">
+              <span>
+                deep
+              </span>
+            </label>
+
+            <label class="tagCheckBox">
+              <input class="checkBox" data="dark" type="checkbox">
+              <span>
+                dark
+              </span>
+            </label>
+
+            <label class="tagCheckBox">
+              <input class="checkBox" data="fantasy" type="checkbox">
+              <span>
+                fantasy
+              </span>
+            </label>
+
+
+          </div>
+        </div>
+
+
+
+
+        <div id="profile" class="popUpBar" style="z-index: 3;">
+          <div class="popUpContainer">
+
+            <div style="text-align: center;font-size: 25px;">
+              Profile
+            </div>
+
+            <div onclick="hidePopUp('profile',true);" style="right: 10px;position: absolute;top: 5px;font-size: 20px;">X</div>
+
+            <div style="margin: auto;width: 150px;height: 150px;">
+              <img style="max-width: 100%;max-height: 100%;border-radius: 50%;" src="https://drive.google.com/uc?export=download&id=1WZ_Scp-TcdSParirSsbDjA_cduoP_7rJ">
+            </div>
+
+            <div style="text-align: center;">
+              NickName
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+  </body>
+</html>
+
+
+<script type="text/javascript">
+  //initialization
+
+  document.getElementById("meta").setAttribute("content",`width=${screen.width}, initial-scale=1`);
+
+  loadTheme();
+
+  let data = {};
+
+  let link = "https://sun9-17.userapi.com/impg/4tg2k1WlegX06xixItRZC65BJjv2eP2hpOzd4g/W8dID-NZKTk.jpg?size=1080x772&quality=96&proxy=1&sign=1a199e6979cc8ecda20dd1b284020643&type=album";
+
+  data["name"] = "testName";
+  data["subLinks"] = `${link};${link};${link};${link}`;
+  data["mainLink"] = "https://raw.githubusercontent.com/VanillaMaster/images/main/img.jpg";
+  data["tags"] = "deep";
+
+  console.log(JSON.stringify(data));
+
+    generateCard(data,"section1");
+    data["tags"] = "dark";
+    generateCard(data,"section1");
+    data["tags"] = "fantasy";
+    generateCard(data,"section1");
+    data["tags"] = "deep;dark;fantasy";
+    generateCard(data,"section1");
+
+
+
+
+</script>
