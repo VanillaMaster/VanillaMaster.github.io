@@ -65,11 +65,15 @@ async function changeLayout() {
 
 function loadTheme() {
   if (getCookieValue("layout") == "") {
-    document.cookie = "layout=mobile"; // TODO: add auto-select
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      document.cookie = "layout=mobile";
+    } else {
+      document.cookie = "layout=pc";
+    }
   }
 
   if (getCookieValue("theme") == "") {
-    document.cookie = "theme=ThemeWhite"; // TODO: add auto-select
+    document.cookie = "theme=ThemeWhite";
   }
 
   if (getCookieValue("layout") == "pc") {
