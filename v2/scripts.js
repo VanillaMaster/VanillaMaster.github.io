@@ -31,6 +31,16 @@ function changeTheme() {
   }
 }
 
+function changeColumnWidth() {
+  if (getCookieValue("columnFixedWidth") == "true") {
+    document.getElementById("column").setAttribute("style","");
+    document.cookie = "columnFixedWidth=false";
+  } else {
+    document.getElementById("column").setAttribute("style","max-width: 1300px;");
+    document.cookie = "columnFixedWidth=true";
+  }
+}
+
 async function changeLayout() {
 
   hideAllPopUp();
@@ -72,6 +82,10 @@ function loadTheme() {
     }
   }
 
+  if (getCookieValue("columnFixedWidth") == "") {
+    document.cookie = "columnFixedWidth=false";
+  }
+
   if (getCookieValue("theme") == "") {
     document.cookie = "theme=ThemeWhite";
   }
@@ -82,11 +96,13 @@ function loadTheme() {
     isPcLayout = false;
   }
 
-  if (getCookieValue("theme") == "ThemeBlack") {
-    document.getElementById("html").setAttribute("class",`ThemeBlack ${getCookieValue("layout")}`);
+  if (getCookieValue("columnFixedWidth") == "true") {
+    document.getElementById("column").setAttribute("style","max-width: 1300px;");
   } else {
-    document.getElementById("html").setAttribute("class",`ThemeWhite ${getCookieValue("layout")}`);
+    document.getElementById("column").setAttribute("style","");
   }
+
+  document.getElementById("html").setAttribute("class",`${getCookieValue("theme")} ${getCookieValue("layout")}`);
 
 }
 

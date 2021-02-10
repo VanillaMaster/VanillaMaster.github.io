@@ -82,6 +82,7 @@
             <br>
             <button onclick="toggleFullScreen();" type="button">toggle fullScreen mode</button>
             <br>
+            <button onclick="changeColumnWidth();" type="button">toggle cards max width</button>
 
           </div>
         </div>
@@ -193,6 +194,8 @@
     generateCard(data,"section3");
 
 
+
+    console.log(`is mobile device: ${/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)}`);
 
 
 </script>
