@@ -3,16 +3,7 @@
   background: #ffffff;
 }
 
-.ThemeWhite .toastLifeBar{
-  background: #3c4043;
-}
-
 .ThemeWhite div.card{
-  background: #ffffff;
-  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
-}
-
-.ThemeWhite .toast{
   background: #ffffff;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
@@ -41,17 +32,8 @@
   background: #202124;
 }
 
-.ThemeBlack .toastLifeBar{
-  background: #e8eaed;
-}
-
 .ThemeBlack div.card{
   background: #313235;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
-}
-
-.ThemeBlack .toast{
-  background: #2d2e31;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
 }
 
@@ -290,6 +272,7 @@
   transition: 0.4s;
   right: 10px;
   padding: 0 10px;
+  overflow: hidden;
 }
 
 .toastLifeBar{
@@ -298,7 +281,24 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  border-radius: 0 0 1.5px 1.5px;
   transition: 3s;
   transition-timing-function: linear;
+}
+
+.ThemeWhite .toastLifeBar{
+  background: #3c4043;
+}
+
+.ThemeWhite .toast{
+  background: #ffffff;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+.ThemeBlack .toastLifeBar{
+  background: #e8eaed;
+}
+
+.ThemeBlack .toast{
+  background: #2d2e31;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
 }
