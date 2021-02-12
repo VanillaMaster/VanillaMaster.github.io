@@ -6,7 +6,7 @@ function getCookieValue(name) {
 
 function showBigCard(src){
   document.getElementById("bigImage").src = src;
-  document.getElementById('body').setAttribute('style','overflow: hidden;');
+  document.getElementById('body').style.overflow = "hidden";
   document.getElementById("background").style.display = "block";
   document.getElementById('settingsBackground').style.display='block';
   document.getElementById('BackgroundColor').style.opacity='0.5';
@@ -14,7 +14,7 @@ function showBigCard(src){
 
 function hideBigCard(allowScroll){
   if (allowScroll) {
-    document.getElementById('body').setAttribute('style','');
+    document.getElementById('body').style.overflow = "";
   }
   document.getElementById("background").style.display = "none";
   document.getElementById('settingsBackground').style.display='none';
@@ -107,7 +107,7 @@ function loadTheme() {
 }
 
 function hideAllPopUp() {
-  document.getElementById('body').setAttribute('style','');
+  document.getElementById('body').style.overflow = "";
   hideBigCard(false);
   hidePopUp("filter",false);
   hidePopUp("profile",false);
@@ -115,26 +115,26 @@ function hideAllPopUp() {
 }
 
 function showPopUp(id) {
-  document.getElementById('body').setAttribute('style','overflow: hidden;');
+  document.getElementById('body').style.overflow = "hidden";
   document.getElementById('settingsBackground').style.display='block';
   document.getElementById('BackgroundColor').style.opacity='0.5';
   if (isPcLayout) {
-    document.getElementById(id).style.width='280px';
+    document.getElementById(id).style.left='0px';
   } else {
-    document.getElementById(id).style.height='280px';
+    document.getElementById(id).style.bottom ='0px';
   }
 }
 
 function hidePopUp(id,allowScroll) {
   if (allowScroll) {
-    document.getElementById('body').setAttribute('style','');
+    document.getElementById('body').style.overflow = "";
   }
   document.getElementById('settingsBackground').style.display='none';
   document.getElementById('BackgroundColor').style.opacity='0';
   if (isPcLayout) {
-    document.getElementById(id).style.width='0px';
+    document.getElementById(id).style.left='';
   } else {
-    document.getElementById(id).style.height='0px';
+    document.getElementById(id).style.bottom ='';
   }
 }
 
@@ -270,5 +270,60 @@ function generateCard(jsonConfig,id){
   document.getElementById(id).appendChild(card);
 
 
+
+}
+
+// toast messages <=========>
+
+function showToas(text) {
+  let toast = document.createElement("div");
+  toast.setAttribute("class","toast");
+
+  toast.textContent = text;
+
+  document.getElementById("toastHolder").prepend(toast);
+
+  //dismissToast(toast,5000);
+}
+
+async function dismissToast(elem,lifeTime) {
+  setTimeout(async function(){
+    elem.style.transform = "translate(calc(100% + 10px))";
+
+      setTimeout(async function(){
+        elem.remove();
+      },200);
+
+  },lifeTime);
+
+}
+
+async function showToast(text) {
+
+  let toast = document.createElement("div");
+  toast.setAttribute("class","toast");
+  toast.style.top = "-50px";
+
+  let bar = document.createElement("div");
+  bar.setAttribute("class","toastLifeBar");
+  bartextContent = "bar";
+
+  toast.textContent = text;
+  toast.appendChild(bar);
+
+  document.getElementById("body").prepend(toast);
+
+  let allToasts = document.getElementsByClassName("toast");
+
+
+  setTimeout(async function(){
+    for (var i = 0; i < allToasts.length; i++) {
+      allToasts[i].style.top = `${parseInt(allToasts[i].style.top)+60}px`;
+    }
+
+    dismissToast(toast,3000);
+    bar.style.width = "0";
+
+  },50);
 
 }
