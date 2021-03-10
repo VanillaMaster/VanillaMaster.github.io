@@ -17,9 +17,7 @@
   width: 100%;
   user-select: none;
 }
-.cardHolder div{
-  height:22px;
-}
 .cardHolder span{
+  line-height: normal;
   vertical-align: text-bottom;
 }
