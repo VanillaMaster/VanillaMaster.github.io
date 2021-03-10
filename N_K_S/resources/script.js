@@ -53,16 +53,16 @@ for (let item of elements) {
 
 //====================
 
-elements = document.getElementsByClassName('squareButton');
+elements = document.getElementsByClassName('topBarButton');
 for (let item of elements) {
   item.addEventListener("click", function() {
     event.preventDefault();
-    event.stopPropagation();
     if(!item.classList.contains("active")){
+      event.stopPropagation();
 
       console.log(item.getAttribute("searchid"));
 
-      let elements = document.getElementsByClassName("squareButton");
+      let elements = document.getElementsByClassName("topBarButton");
       for (let item of elements) {
         item.classList.remove("active");
 
@@ -79,7 +79,7 @@ for (let item of elements) {
 
 document.getElementById('app').addEventListener("click", function() {
 
-  let elements = document.getElementsByClassName("squareButton");
+  let elements = document.getElementsByClassName("topBarButton");
   for (let item of elements) {
     item.classList.remove("active");
 
@@ -87,5 +87,13 @@ document.getElementById('app').addEventListener("click", function() {
   }
 
 });
+
+elements = document.getElementsByClassName('popUpList');
+for (let item of elements) {
+  item.addEventListener("click", function() {
+    event.stopPropagation();
+    event.preventDefault();
+  });
+}
 
 //==================

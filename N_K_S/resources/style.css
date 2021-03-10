@@ -106,10 +106,10 @@ header{
   color: black;
 }
 
-.squareButton a{
+.topBarButton{
   padding: 13px 11px !important;
 }
 
-.squareButton.active svg{
+.topBarButton.active svg{
   fill: black;
 }
