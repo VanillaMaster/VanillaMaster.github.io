@@ -97,3 +97,25 @@ for (let item of elements) {
 }
 
 //==================
+
+elements = document.getElementsByClassName("cardDisplayToggleItem");
+for (let item of elements) {
+
+  item.addEventListener("click", function() {
+    event.preventDefault();
+    if(!item.classList.contains("active")){
+
+      let elements = document.getElementsByClassName("cardDisplayToggleItem");
+      for (let item of elements) {
+        item.classList.remove("active");
+      }
+
+      item.classList.add("active");
+
+      console.log(item.getAttribute("toggletype"));
+
+
+      document.getElementById("cardHolder").className = item.getAttribute("toggletype");
+    }
+  });
+}

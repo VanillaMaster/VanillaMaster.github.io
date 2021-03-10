@@ -1,0 +1,23 @@
+.cardDisplayToggle{
+  overflow: auto;
+}
+
+.cardDisplayToggle ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+}
+
+.cardDisplayToggle li{
+  float: right;
+}
+.cardDisplayToggle svg{
+  fill: #919191;
+}
+.cardDisplayToggle a:hover svg{
+  fill: black;
+}
+.cardDisplayToggle a.active svg{
+  fill: black;
+}

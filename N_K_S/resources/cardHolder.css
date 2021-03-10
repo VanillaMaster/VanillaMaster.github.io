@@ -1,23 +1,43 @@
-.cardHolder{
+#cardHolder{
   width: calc(100% + 20px);
 }
-.cardHolder ul{
+#cardHolder ul{
   padding:0;
   list-style: none;
   margin: 0;
   overflow: auto;
 }
-.cardHolder li{
-  width: calc(20% - 20px);
+#cardHolder li{
   line-height: 0;
-  float: left;
-  padding-right: 20px;
+  margin: 0 20px 10px 0;
+  background: #cfd8dc;
+  overflow: auto;
 }
-.cardHolder img{
+#cardHolder img{
   width: 100%;
   user-select: none;
 }
-.cardHolder span{
+#cardHolder span{
   line-height: normal;
   vertical-align: text-bottom;
+}
+#cardHolder ul div {
+  padding: 0 5px;
+}
+
+#cardHolder.grid li{
+  float: left;
+  width: calc(20% - 20px);
+}
+
+#cardHolder.list img{
+  max-height: 150px;
+  max-width: 150px;
+  height: auto;
+  width: auto;
+  float: left;
+}
+#cardHolder.list div{
+  float: left;
+  padding: 5px;
 }
