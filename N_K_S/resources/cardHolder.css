@@ -1,0 +1,25 @@
+.cardHolder{
+  width: calc(100% + 20px);
+}
+.cardHolder ul{
+  padding:0;
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+}
+.cardHolder li{
+  width: calc(20% - 20px);
+  line-height: 0;
+  float: left;
+  padding-right: 20px;
+}
+.cardHolder img{
+  width: 100%;
+  user-select: none;
+}
+.cardHolder div{
+  height:22px;
+}
+.cardHolder span{
+  vertical-align: text-bottom;
+}
