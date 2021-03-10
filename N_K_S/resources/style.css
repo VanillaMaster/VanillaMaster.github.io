@@ -1,0 +1,135 @@
+:root {
+  --app-width: 960px;
+}
+
+body{
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header{
+  background: #cfd8dc;
+  height: 46px;
+  position: fixed;
+  width: 100%;
+  line-height: 46px;
+  user-select: none;
+}
+
+#app{
+  background: #f2f2f2;
+}
+
+#mainArea{
+  width: calc(var(--app-width) - 40px);
+  max-width: calc(100% - 40px);
+  padding: 46px 20px 20px;
+  height: 1200px;
+  /* display: table; */
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+#topBar{
+  width: var(--app-width);
+  max-width: calc(100% - 40px);
+  height: 100%;
+  margin: auto;
+  display: flex;
+}
+
+.topBarEdge{
+  height: 100%;
+}
+
+.topBarMiddle{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.topBarMiddle input{
+  width: calc(100% - 20px);
+}
+
+.topBarContainer{
+  height: 100%;
+  width: max-content;
+}
+
+.topBarContainerItem{
+  height: 100%;
+  float: left;
+}
+
+.topBarContainerItem ul{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+}
+.topBarContainerItem li{
+  height: 100%;
+  float: left;
+}
+.topBarContainerItem a{
+  font-size: 15px;
+  padding: 13px;
+  text-decoration: none;
+  color: #919191;
+  cursor: pointer;
+}
+.topBarContainerItem a:hover {
+  color: black;
+}
+
+.topBarContainerItem a:hover svg {
+  fill: black;
+}
+
+.topBarContainerItem svg {
+  fill: #919191;
+  vertical-align: middle;
+}
+
+.clickableList {
+  position: relative;
+  poin
+}
+
+.clickableList input {
+  display: none;
+}
+
+.clickableList input:checked + label svg{
+  fill: black;
+}
+
+.clickableList input:checked + label + .popUpList{
+  display: block;
+}
+
+.floatingList{
+  position: relative;
+}
+
+.floatingList:hover svg{
+  fill: black;
+}
+
+.floatingList:hover .popUpList{
+  display: block;
+}
+
+.squareButton{
+  padding: 13px 11px !important;
+}
+
+.popUpList{
+  position: absolute;
+  top: 46px;
+  right: 0px;
+  width: 100px;
+  display: none;
+  background: #cfd8dc;
+}
