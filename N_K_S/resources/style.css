@@ -60,6 +60,7 @@ header{
 .topBarContainerItem{
   height: 100%;
   float: left;
+  position: relative;
 }
 
 .topBarContainerItem ul{
@@ -92,39 +93,6 @@ header{
   vertical-align: middle;
 }
 
-.clickableList {
-  position: relative;
-  poin
-}
-
-.clickableList input {
-  display: none;
-}
-
-.clickableList input:checked + label svg{
-  fill: black;
-}
-
-.clickableList input:checked + label + .popUpList{
-  display: block;
-}
-
-.floatingList{
-  position: relative;
-}
-
-.floatingList:hover svg{
-  fill: black;
-}
-
-.floatingList:hover .popUpList{
-  display: block;
-}
-
-.squareButton{
-  padding: 13px 11px !important;
-}
-
 .popUpList{
   position: absolute;
   top: 46px;
@@ -136,4 +104,12 @@ header{
 
 .navButton.active{
   color: black;
+}
+
+.squareButton a{
+  padding: 13px 11px !important;
+}
+
+.squareButton.active svg{
+  fill: black;
 }

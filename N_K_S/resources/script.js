@@ -1,18 +1,3 @@
-document.getElementById('app').addEventListener("click", function() {
-  document.getElementById("checkBoxMail").checked = false;
-  document.getElementById("checkBoxShowMore").checked = false;
-});
-
-document.getElementById('mailButton').addEventListener("click", function() {
-  event.stopPropagation();
-  document.getElementById("checkBoxShowMore").checked = false;
-});
-
-document.getElementById('showMoreButton').addEventListener("click", function() {
-  event.stopPropagation();
-  document.getElementById("checkBoxMail").checked = false;
-});
-
 let elements = document.getElementById('subNavigation').getElementsByClassName("subNavigationButton")
 for (let item of elements) {
   item.addEventListener("click", function() {
@@ -65,3 +50,42 @@ for (let item of elements) {
     }
   });
 }
+
+//====================
+
+elements = document.getElementsByClassName('squareButton');
+for (let item of elements) {
+  item.addEventListener("click", function() {
+    event.preventDefault();
+    event.stopPropagation();
+    if(!item.classList.contains("active")){
+
+      console.log(item.getAttribute("searchid"));
+
+      let elements = document.getElementsByClassName("squareButton");
+      for (let item of elements) {
+        item.classList.remove("active");
+
+        document.getElementById(item.getAttribute("searchid")).style.display = "none";
+      }
+
+      item.classList.add("active");
+
+      document.getElementById(item.getAttribute("searchid")).style.display = "block";
+
+    }
+  });
+}
+
+document.getElementById('app').addEventListener("click", function() {
+
+  let elements = document.getElementsByClassName("squareButton");
+  for (let item of elements) {
+    item.classList.remove("active");
+
+    document.getElementById(item.getAttribute("searchid")).style.display = "none";
+  }
+
+});
+
+//==================
