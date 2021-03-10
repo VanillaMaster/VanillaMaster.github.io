@@ -133,3 +133,7 @@ header{
   display: none;
   background: #cfd8dc;
 }
+
+.navButton.active{
+  color: black;
+}

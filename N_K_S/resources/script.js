@@ -18,7 +18,12 @@ for (let item of elements) {
   item.addEventListener("click", function() {
     event.preventDefault()
     if(!item.classList.contains("active")){
-      removeActive();
+
+      let elements = document.getElementById('subNavigation').getElementsByClassName("subNavigationButton");
+      for (let item of elements) {
+        item.classList.remove("active");
+      }
+
       item.classList.add("active");
 
       let cards = document.getElementsByClassName("card")
@@ -26,9 +31,9 @@ for (let item of elements) {
         card.style.display = "none";
       }
 
-      console.log(item.innerText.replace(/ /g,""));
-      
-      cards = document.getElementsByClassName(item.innerText.replace(/ /g,""))
+      console.log(item.getAttribute("searchtag"));
+
+      cards = document.getElementsByClassName(item.getAttribute("searchtag"))
       for (let card of cards){
         card.style.display = "block";
       }
@@ -37,9 +42,26 @@ for (let item of elements) {
 }
 
 
-function removeActive() {
-  let elements = document.getElementById('subNavigation').getElementsByClassName("subNavigationButton");
-  for (let item of elements) {
-    item.classList.remove("active");
-  }
+elements = document.getElementsByClassName('navButton');
+for (let item of elements) {
+  item.addEventListener("click", function() {
+    event.preventDefault();
+    if(!item.classList.contains("active")){
+      let elements = document.getElementsByClassName("navButton");
+      for (let item of elements) {
+        item.classList.remove("active");
+      }
+
+      item.classList.add("active");
+
+      let containers = document.getElementsByClassName("content");
+      for (let item of containers) {
+        item.style.display="none";
+      }
+
+      console.log(item.getAttribute("searchid"));
+
+      document.getElementById(item.getAttribute("searchid")).style.display="block";
+    }
+  });
 }
