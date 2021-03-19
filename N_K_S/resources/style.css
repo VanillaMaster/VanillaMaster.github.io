@@ -2,29 +2,37 @@
   --app-width: 960px;
 }
 
+html{
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
 body{
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 
 header{
   background: #cfd8dc;
   height: 46px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   line-height: 46px;
   user-select: none;
   border-bottom: 1px solid #f2f2f2;
+  top: 0;
 }
 
 #app{
   background: #f2f2f2;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 #mainArea{
   width: calc(var(--app-width) - 40px);
   max-width: calc(100% - 40px);
-  padding: 46px 20px 20px;
+  padding: 0 20px;
   min-height: 1200px;
   /* display: table; */
   margin: 0 auto;
@@ -51,6 +59,11 @@ header{
 
 .topBarMiddle input{
   width: calc(100% - 20px);
+  outline: none;
+  height: 24px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 12px;
 }
 
 .topBarContainer{
@@ -62,6 +75,33 @@ header{
   height: 100%;
   float: left;
   position: relative;
+  display: none;
+}
+
+.topBarContainerItem.active{
+  display: block;
+}
+
+.topBarContainer .avatar{
+  float: left;
+  height: 46px;
+  display: flex;
+  align-items: center;
+}
+
+.topBarContainer .avatar div{
+  height: 30px;
+  width: 30px;
+  float: left;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.topBarContainer .avatar img{
+  max-width: 40px;
+  max-height: 40px;
 }
 
 .topBarContainerItem ul{

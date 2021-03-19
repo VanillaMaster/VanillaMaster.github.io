@@ -16,6 +16,7 @@
 #cardHolder img{
   width: 100%;
   user-select: none;
+  cursor: pointer;
 }
 #cardHolder span{
   line-height: normal;

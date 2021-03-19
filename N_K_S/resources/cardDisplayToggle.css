@@ -1,5 +1,6 @@
 .cardDisplayToggle{
   overflow: auto;
+  color: #919191;
 }
 
 .cardDisplayToggle ul{
@@ -7,12 +8,18 @@
   padding: 0;
   list-style: none;
   overflow: auto;
+  width: max-content;
+  float: right;
+}
+.cardDisplayToggle a{
+  font-size: 18px;
 }
 
 .cardDisplayToggle li{
-  float: right;
+  float: left;
 }
 .cardDisplayToggle svg{
+  vertical-align: bottom;
   fill: #919191;
 }
 .cardDisplayToggle a:hover svg{
@@ -20,4 +27,7 @@
 }
 .cardDisplayToggle a.active svg{
   fill: black;
+}
+.cardDisplayToggle span{
+  float: right;
 }

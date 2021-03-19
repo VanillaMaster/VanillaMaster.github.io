@@ -1,0 +1,81 @@
+#overlay{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: none;
+  padding: 50px;
+  align-items: center;
+  width: calc(100% - 100px);
+  height: calc(100% - 100px);
+}
+
+#overlay.active{
+  display: flex;
+}
+
+.overlayCloseButton{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  font-size: 22px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  user-select: none;
+  color: #cfd8dc;
+}
+.overlayCloseButton:active{
+  margin-top:1px
+}
+
+.overlayCard{
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  display: none;
+  border-radius: 10px;
+}
+
+.overlayCard.active{
+  display: block;
+}
+
+#loginField .field{
+  position: relative;
+}
+
+#loginField .field svg{
+  position: absolute;
+  left: 0;
+  fill: #919191;
+  pointer-events: none;
+}
+
+#loginField .field span{
+  font-size: 12px;
+}
+
+#loginField .field input{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 23px;
+  padding: 0;
+  padding-left: 24px;
+  width: calc(100% - 24px);
+}
+
+#loginField .header{
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+#loginField .button{
+  margin-top: 40px;
+  text-align: center;
+}
