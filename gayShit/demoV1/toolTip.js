@@ -1,7 +1,8 @@
 (function() {
 
   const processToolTipData = {
-    "weapon":showWeapon
+    "weapon":showWeapon,
+    "artifact":showArtifact
   }
 
   async function mousemove(e) {
@@ -81,6 +82,42 @@
 
     }
     document.getElementById('toolTip').append(template);
+  }
+
+  function showArtifact(json) {
+    while (toolTip.lastElementChild) {
+      toolTip.removeChild(toolTip.lastElementChild);
+    }
+    //=================================================
+    let template = document.getElementById("artifact").content.cloneNode(true);
+    //=================================================
+    template.querySelector(".name").innerText=json.name;
+    template.querySelector(".itemClass").innerText=json.itemClass;
+    template.querySelector(".rarity").innerText='\u2605'.repeat(json.rarity);
+    template.querySelector("img").src=json.img;
+
+    for (let i = 0; i < json.passives.length; i++) {
+
+      let pn = document.createElement('span');
+      pn.classList.add("passiveName");
+      pn.innerText=`${json.passives[i].passiveName}:`;
+      template.querySelector(".passives").append(pn);
+      template.querySelector(".passives").append(document.createElement('br'));
+
+      let descript = json.passives[i].passiveDescript;
+      for (let item in json.passives[i].passiveDescriptValues) {
+        descript = descript.replaceAll(`#${item}`,`<span>${json.passives[i].passiveDescriptValues[item].replaceAll("/","/<wbr>")}</span>`)
+      }
+
+      let pd = document.createElement('span');
+      pd.classList.add("passiveDescript");
+      pd.innerHTML=descript;
+      template.querySelector(".passives").append(pd);
+      template.querySelector(".passives").append(document.createElement('br'));
+
+    }
+    document.getElementById('toolTip').append(template);
+
   }
 
 //==============================================================================

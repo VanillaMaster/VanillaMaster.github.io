@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html class="themeWhite" lang="en" dir="ltr">
   <head>
 
     <link rel="stylesheet" href="toolTip.css">
@@ -14,19 +14,81 @@
   <body>
 
 
-<div class id="toolTip"></div>
+    <div class id="toolTip"></div>
 
-  <span>палка хутваы:</span>
-  <div class="toolTip" src="homa_staff.json" style="width:75px;height:75px;">
-    <img class="toolTip" style="width:100%;height:100%;" src="pic/homa.png">
-  </div>
+    <div id="app">
 
-  <hr>
-  <span>лук ануса:</span>
-  <div class="toolTip" src="amos_bow.json" style="width:75px;height:75px;">
-    <img class="toolTip" style="width:100%;height:100%;" src="pic/amos.png">
-  </div>
-  <span>у него даже есть ToolTip, ахуеть</span>
+      <header>
+        <div id="topBar">
+
+          <div class="topBarEdge">
+            left
+          </div>
+
+          <div class="topBarMiddle">
+            middle
+          </div>
+
+          <div class="topBarEdge">
+            right
+          </div>
+
+        </div>
+      </header>
+
+      <div id="mainArea">
+
+        <div>
+
+          <div class="subNavigation">
+            something
+          </div>
+
+          <fieldset style="background:var(--app-background-color);">
+
+            <legend>weapon ToolTip test</legend>
+
+            <a href="data/weapon/homa_staff.json">палка хутваы:</a>
+            <div class="toolTip" src="data/weapon/homa_staff.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/homa.png">
+            </div>
+
+            <br>
+            <a href="data/weapon/amos_bow.json">лук ануса:</a>
+            <div class="toolTip" src="data/weapon/amos_bow.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/amos.png">
+            </div>
+
+          </fieldset>
+
+          <fieldset style="background:var(--app-background-color);">
+
+            <legend>charecters ToolTip test</legend>
+
+            <a href="#">гей:</a>
+            <span>TODO: придумать тултип для чаров</span>
+            <div class="" src="data/weapon/homa_staff.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/venti.png">
+            </div>
+
+          </fieldset>
+
+          <fieldset style="background:var(--app-background-color);">
+
+            <legend>artifacts ToolTip test</legend>
+
+            <a href="data\artifacts\bloodstained_chivalry.json">рыцарь(roflanEbalo):</a>
+            <div class="toolTip" src="data\artifacts\bloodstained_chivalry.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/bloodstained.png">
+            </div>
+
+          </fieldset>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </body>
 
@@ -61,6 +123,34 @@
 
     </div>
 
+  </template>
+
+  <template id="artifact">
+    <div class="weaponCard">
+
+      <h1 class="name"></h1>
+
+      <ul>
+
+        <li>
+          <span class="itemClass"></span><br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <span class="rarity"></span><br>
+        </li>
+
+        <li>
+          <img src="" alt="artifact_img">
+        </li>
+
+      </ul>
+
+      <div class="passives">
+      </div>
+
+    </div>
   </template>
 
 </html>

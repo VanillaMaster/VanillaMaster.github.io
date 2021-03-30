@@ -10,7 +10,9 @@
   border-bottom: 1px #915229 solid;
   color: white;
   margin: 0;
-  font-size: 33px;
+  /* font-size: 33px; */
+  font-size: 22px;
+  line-height: 45px;
 }
 
 .weaponCard ul{
