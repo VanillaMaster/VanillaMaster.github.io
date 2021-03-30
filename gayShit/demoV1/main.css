@@ -1,0 +1,11 @@
+#toolTip{
+  overflow:hidden;
+  position: absolute;
+  display:none;
+  border: 2px solid gray;
+  border-radius: 2px;
+}
+
+#toolTip.active{
+  display: block;
+}
