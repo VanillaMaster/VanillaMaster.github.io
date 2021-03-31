@@ -1,5 +1,7 @@
 (function() {
 
+  const toolTip = document.getElementById("toolTip");
+
   const processToolTipData = {
     "weapon":showItem,
     "artifact":showItem
@@ -7,8 +9,20 @@
 
   async function mousemove(e) {
     // TODO: auto select position using coordinats and tooltip size
-    document.getElementById('toolTip').style.left = `${e.clientX+20}px`;
-    document.getElementById('toolTip').style.top = `${e.clientY+20}px`;
+    toolTip.style.left = `${e.clientX+20}px`;
+
+    if ((window.innerHeight - e.clientY - 20) >= toolTip.offsetHeight) {
+      toolTip.style.top = `${e.clientY+20}px`;
+    } else {
+      toolTip.style.top = `${e.clientY-20-toolTip.offsetHeight}px`;
+    }
+
+  }
+
+  async function reposition() {
+    if (!(window.innerHeight - parseInt(toolTip.style.top) >= toolTip.offsetHeight)) {
+      toolTip.style.top = `${parseInt(toolTip.style.top)-40-toolTip.offsetHeight}px`;
+    }
   }
 
   async function hover(elem) {
@@ -30,6 +44,10 @@
             console.error("unexpected data type (tooltip)");
           }
 
+
+          //elem.dispatchEvent(new Event("mousemove"))
+          reposition();
+
         } else {
           console.error(xhr.statusText);
         }
@@ -46,7 +64,6 @@
 
   function showItem(json) {
 
-    const toolTip = document.getElementById("toolTip");
     while (toolTip.lastElementChild) {
       toolTip.removeChild(toolTip.lastElementChild);
     }
