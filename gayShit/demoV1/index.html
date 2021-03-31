@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="themeWhite" lang="en" dir="ltr">
+  <head>
+
+    <link rel="stylesheet" href="resources/css/toolTip.css">
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/subNavigation.css">
+    <link rel="stylesheet" href="resources/css/sideBar.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <div class id="toolTip"></div>
+
+    <div id="app">
+
+      <header>
+        <div id="topBar">
+
+          <div class="topBarEdge">
+            left
+          </div>
+
+          <div class="topBarMiddle">
+            middle
+          </div>
+
+          <div class="topBarEdge">
+            right
+          </div>
+
+        </div>
+      </header>
+
+      <div class="sideNavigation">
+        <input id="sideCheckbox" checked type="checkbox" style="display:none;">
+        <label style="height:24px;width:24px;display:block;" for="sideCheckbox">
+          <div style="height:100%;width:100%;"></div>
+        </label>
+        <br>
+        <div>
+        <ul>
+          <li><a href="#">kind</a></li>
+          <li><a href="#">of</a></li>
+          <li><a href="#">document</a></li>
+          <li><a href="#">navigation</a></li>
+        </ul>
+        </div>
+      </div>
+
+      <div id="mainArea">
+
+        <div>
+
+          <div id="subNavigation" class="subNavigation">
+            <ul>
+              <li>
+                <a class="subNavigationButton active">Temp</a>
+              </li>
+              <li>
+                <a class="subNavigationButton">Temp 2</a>
+              </li>
+              <li>
+                <a class="subNavigationButton">Temp 3</a>
+              </li>
+            </ul>
+          </div>
+
+          <fieldset style="background:var(--app-background-color);">
+
+            <legend>weapon ToolTip test</legend>
+
+            <a href="data/weapon/homa_staff.json">палка хутваы:</a>
+            <div class="toolTip" src="data/weapon/homa_staff.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/homa.png">
+            </div>
+
+            <br>
+            <a href="data/weapon/amos_bow.json">лук ануса:</a>
+            <div class="toolTip" src="data/weapon/amos_bow.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/amos.png">
+            </div>
+
+          </fieldset>
+
+          <fieldset style="background:var(--app-background-color);">
+
+            <legend>charecters ToolTip test</legend>
+
+            <a href="#">гей:</a>
+            <span>TODO: придумать тултип для чаров</span>
+            <div class="" src="data/weapon/homa_staff.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/venti.png">
+            </div>
+
+          </fieldset>
+
+          <fieldset style="background:var(--app-background-color);">
+
+            <legend>artifacts ToolTip test</legend>
+
+            <a href="data\artifacts\bloodstained_chivalry.json">рыцарь(roflanEbalo):</a>
+            <div class="toolTip" src="data\artifacts\bloodstained_chivalry.json" style="width:75px;height:75px;">
+              <img style="width:100%;height:100%;" src="pic/bloodstained.png">
+            </div>
+
+          </fieldset>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <script src="resources/js/toolTip.js" type="text/javascript"></script>
+  <script src="resources/js/subNavigation.js" type="text/javascript">
+
+  </script>
+
+  <template id="weapon">
+
+    <div class="weaponCard">
+
+      <h1 class="name"></h1>
+
+      <ul>
+
+        <li>
+          <span class="itemClass"></span><br>
+          <span class="subStat"></span><br>
+          <span class="subStatValue"></span><br>
+          <span class="atack">Base ATK</span><br>
+          <span class="atackValue"></span><br>
+          <span class="rarity"></span><br>
+        </li>
+
+        <li>
+          <img src="" alt="weapin_img">
+        </li>
+
+      </ul>
+
+
+      <div class="passives">
+      </div>
+
+    </div>
+
+  </template>
+
+  <template id="artifact">
+    <div class="weaponCard">
+
+      <h1 class="name"></h1>
+
+      <ul>
+
+        <li>
+          <span class="itemClass"></span><br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <span class="rarity"></span><br>
+        </li>
+
+        <li>
+          <img src="" alt="artifact_img">
+        </li>
+
+      </ul>
+
+      <div class="passives">
+      </div>
+
+    </div>
+  </template>
+
+</html>
