@@ -1,0 +1,42 @@
+.sideNavigation{
+  position: fixed;
+  margin-top: 20px;
+  user-select: none;
+}
+
+.sideNavigation input:checked~div{
+  width: 100%;
+}
+
+.sideNavigation input:checked~label svg.show{
+  display: block;
+}
+
+.sideNavigation input:not(:checked)~label svg.collapse{
+  display: block;
+}
+
+.sideNavigation input~label svg{
+  position: absolute;
+  display: none;
+}
+
+.sideNavigation input~label{
+  height:24px;
+  width:24px;
+  display:block;
+  cursor: pointer;
+}
+
+.sideNavigation>div{
+  width: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.sideNavigation ul{
+  margin: 0;
+  list-style: none;
+  float: right;
+  padding-left: 20px;
+  user-select: text;
+}
