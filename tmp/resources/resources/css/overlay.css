@@ -1,0 +1,38 @@
+#overlay{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: none;
+  padding: 50px;
+  align-items: center;
+  width: calc(100% - 100px);
+  height: calc(100% - 100px);
+}
+#overlay.active{
+  display: flex;
+}
+.overlayCloseButton{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  font-size: 22px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  user-select: none;
+  color: #cfd8dc;
+}
+.overlayCloseButton:active{
+  margin-top:1px
+}
+
+#overlayWindow{
+  height: 100%;
+  border: none;
+  margin: 0px auto;
+  background: white;
+}

@@ -1,0 +1,24 @@
+{
+  "type":"weapon",
+  "data":{
+    "name":"Amos' Bow",
+    "itemClass":"Bow",
+    "subStat":"ATK",
+    "subStatValue":[10.8,49.6],
+    "subStatUnits":"%",
+    "mainStat":"Base ATK",
+    "mainStatValue":[46,608],
+    "rarity":5,
+    "img":"pic/amos.png",
+    "passives":[
+      {
+        "passiveName":"Strong-Willed",
+        "passiveDescript":"Increases Normal Attack and Charged Attack DMG by #value1. After a Normal or Charged Attack is fired, DMG dealt increases by a further #value2 every 0.1 seconds up to 5 times.",
+        "passiveDescriptValues":{
+          "value1":"12/15/18/21/24%",
+          "value2":"8/10/12/14/16%"
+        }
+      }
+    ]
+  }
+}

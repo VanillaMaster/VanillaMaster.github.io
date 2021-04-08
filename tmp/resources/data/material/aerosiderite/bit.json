@@ -1,0 +1,19 @@
+{
+  "type":"weapon",
+  "data":{
+    "name":"Bit of Aerosiderite",
+    "itemClass":"Material",
+    "rarity":4,
+    "img":"pic/material/aerosiderite/4.png",
+    "passives":[
+      {
+        "passiveName":"Source",
+        "passiveDescript":"Hidden Palace of Lianshan Formula in #value1. Also #value2",
+        "passiveDescriptValues":{
+          "value1":"Wednesday/Saturday/Sunday",
+          "value2":"alchemy"
+        }
+      }
+    ]
+  }
+}
