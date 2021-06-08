@@ -15,20 +15,16 @@ html, body{
   left: 0;
   /*pointer-events: none;*/
 }
-#playerScroll{
-  width: 100%;
-  height: auto;
-}
 #playerEmpty{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: red;
   opacity: 0.5;
   pointer-events: none;
   margin-bottom: -56.25%;
 }
 #playerContainer{
-  height: 100vh;
+  height: 100%;
     width: 100%;
   background: blue;
   opacity: 0.5;
