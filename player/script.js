@@ -1,21 +1,15 @@
 const playerWindow = document.getElementById("playerWindow");
 const pseudoPlayerWindow = document.getElementById("pseudoPlayerWindow");
-const playerPane = document.getElementById('playerPane');
+const playerContant = document.getElementById('playerContant');
+const dockbar = document.getElementById('dockbar');
 
 const height = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--minimized-player-height'));
+const dockbarHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--bottom-dock-bar-height'));
 
 
-playerPane.addEventListener('scroll', function(e) {
+document.getElementsByTagName('body')[0].addEventListener('scroll', function(e) {
   let percent = (this.scrollTop / (this.scrollHeight - this.offsetHeight)).toFixed(2);
   playerWindow.style.height = `${((pseudoPlayerWindow.offsetHeight - height) * percent + height).toFixed(0)}px`;
-
-});
-
-
-document.getElementById("playerWindow").addEventListener("touchstart", function(e){
-  playerPane.classList.add("active");
-});
-document.getElementById("playerWindow").addEventListener("touchend", function(e){
-  playerPane.classList.remove("active");
-  playerPane.scroll({top: playerPane.scrollTop, behavior: 'smooth'});
+  playerContant.style.opacity = percent;
+  dockbar.style.bottom = `${(-percent*dockbarHeight).toFixed(2)}px`
 });

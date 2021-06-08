@@ -1,29 +1,28 @@
 :root{
   --minimized-player-height:60px;
+  --bottom-dock-bar-height:50px;
 }
-html, body{
+html{
   height: 100%;
   width:100%;
   margin: 0;
+  overflow: hidden;
 }
-#playerPane{
+body{
   position: absolute;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   top: 0;
   left: 0;
-  pointer-events: none;
   scroll-snap-type: y mandatory;
-}
-#playerPane.active{
-  pointer-events: auto;
+  margin: 0;
 }
 
 #playerEmpty{
   width: 100%;
   height: 100%;
-  margin-bottom: -56.25%;
+  margin-bottom: calc(-56.25% - var(--bottom-dock-bar-height));
   scroll-snap-align: start;
 }
 #playerContainer{
@@ -48,7 +47,7 @@ html, body{
   display: flex;
   align-items: center;
   overflow: hidden;
-  pointer-events: auto;
+  z-index: 2;
 }
 #player{
   background: url(https://images.unsplash.com/photo-1597487389339-5591e52de66f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=1200);
@@ -62,5 +61,23 @@ html, body{
   height: 100%;
   width: 100%;
   background: cadetblue;
-  pointer-events: auto;
+  z-index: 2;
+  opacity: 0;
+}
+#test{
+  position: fixed;
+  background: yellow;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1
+}
+#dockbar{
+  position: fixed;
+  height: var(--bottom-dock-bar-height);
+  width: 100%;
+  bottom: 0;
+  background: tomato;
+  z-index: 10;
 }
