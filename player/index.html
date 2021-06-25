@@ -9,7 +9,9 @@
   <body id="body">
 
     <div id="test">
+      <div style="min-height: calc(100% + 1px);">
       <button onclick="alert('asd2');" type="button" name="button">asd2</button>
+      </div>
     </div>
 
     <div id="playerEmpty"></div>
@@ -19,7 +21,18 @@
       <div id="pseudoPlayerWindow">
         <div id="playerWindow">
 
-          <div id="player"></div>
+          <div id="player">
+
+            <div id="playerInner">
+
+              <video width="400" controls>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+
+            </div>
+
+          </div>
 
         </div>
       </div>
