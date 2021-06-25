@@ -12,8 +12,8 @@ var isMinified = true;
 var isMaximized = false;
 
 document.getElementById("body").addEventListener('scroll', function(e) {
-  let percent = (this.scrollTop / (this.scrollHeight - this.offsetHeight)).toFixed(2);
-  playerWindow.style.height = `${((pseudoPlayerWindow.offsetHeight - height) * percent + height).toFixed(0)}px`;
+  let percent = (this.scrollTop / (this.scrollHeight - this.offsetHeight)).toFixed(4);
+  playerWindow.style.height = `${((pseudoPlayerWindow.offsetHeight - height) * percent + height).toFixed(2)}px`;
   playerContant.style.opacity = percent;
   dockbar.style.bottom = `${(-percent*dockbarHeight).toFixed(2)}px`
 
