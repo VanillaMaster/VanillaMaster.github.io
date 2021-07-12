@@ -1,0 +1,53 @@
+ .app_header_sticky button{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0;
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+}
+
+.ripple{
+  animation-timing-function: linear;
+}
+
+.ripple[data-animation="true"]{
+  animation-name: ripple;
+  animation-duration: 0.15s;
+}
+
+.ripple:active{
+  background-color: var(--ripple-color);
+}
+
+.ripple[data-animation="false"]:not(:active){
+  animation-name: end_ripple;
+  animation-duration: 0.15s;
+}
+
+
+@keyframes ripple {
+  from {
+    background-position: center;
+    background: radial-gradient(circle, var(--ripple-color) 1%, transparent 1%) center;
+    background-size: 0;
+  }
+
+  to {
+    background-position: center;
+    background: radial-gradient(circle, var(--ripple-color) 1%, transparent 1%) center;
+    background-size: 10000%;
+  }
+}
+
+@keyframes end_ripple {
+  from {
+    background-color: var(--ripple-color);
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
