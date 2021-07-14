@@ -35,12 +35,15 @@
   top: 0;
   height: var(--app-header-min-height);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 0 15px;
 }
 
 .title{
   color:var(--text-color-1);
-  font-size: 80px;
+  font-size: 35px;
+  transform-origin: top left;
   margin: 0;
+
+  transform: scale(var(--header-title-max-scale));
 }
