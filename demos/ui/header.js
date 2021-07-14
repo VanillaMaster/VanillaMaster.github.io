@@ -8,7 +8,7 @@
   const titleFontDetaSize = 80-35;
 
 
-  const views = document.getElementsByClassName("app_view");
+  const views = document.getElementsByClassName("view");
 
   for (let view of views) {
 

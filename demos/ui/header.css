@@ -1,8 +1,8 @@
 .app_header_full{
   width: 100%;
-  margin-bottom: calc(0pc - var(--app-header-min-height));
+  margin-bottom: calc(0px - var(--app-header-min-height));
   height: var(--app-header-max-height);
-  background: #dbea8e;
+  background: var(--app-color-1);
   border-radius: 0px 0px 15px 15px;
   z-index: 1;
 }
@@ -11,7 +11,7 @@
   width: auto;
   height: var(--app-header-min-height);
   top: 0;
-  background: #dbea8e;
+  background: var(--app-color-1);
   border-radius: 0px 0px 15px 15px;
   position: sticky;
   display: flex;
@@ -40,7 +40,7 @@
 }
 
 .title{
-  color:black;
+  color:var(--text-color-1);
   font-size: 80px;
   margin: 0;
 }

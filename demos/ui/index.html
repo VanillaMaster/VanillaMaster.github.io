@@ -18,101 +18,159 @@
 
     <div id="app">
 
-      <!--
-      <div class="app_view"></div>
-      -->
+      <div class="appContainer">
 
-      <div id="mainPage" class="app_view">
+        <div class="viewWrapper">
 
-        <div class="app_header_full"></div>
+          <div id="mainPage" class="view">
 
-        <div class="app_header_sticky">
-          <div class="titleWrapper">
-            <div class="titleSticky">
-              <h1 class="title">Title</h1>
+            <div class="app_header_full"></div>
+
+            <div class="app_header_sticky">
+              <div class="titleWrapper">
+                <div class="titleSticky">
+                  <h1 class="title">Title</h1>
+                </div>
+              </div>
+
+              <button class="ripple search" title="search" type="button">
+                <span class="icon">search</span>
+              </button>
+
+              <button class="ripple enterFullScreen" id="fullscreenToggle" title="fullscreen" type="button">
+                <span class="icon">fullscreen</span>
+              </button>
             </div>
+
+            <div class="viewContainer">
+
+              <h4>toggle bottom drawer:</h4>
+
+              <input id="drawerCheck" style="margin: 0 auto;" class="toggle" type="checkbox">
+
+                <ul>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+                  <li>some text</li>
+
+                </ul>
+
+            </div>
+
           </div>
 
-          <button class="ripple search" title="search" type="button">
-            <span class="icon">search</span>
-          </button>
+          <div id="page_2" class="view">
 
-          <button class="ripple enterFullScreen" id="fullscreenToggle" title="fullscreen" type="button">
-            <span class="icon">fullscreen</span>
-          </button>
+            <div class="viewContainer">
+              test page 2
+            </div>
+            
+          </div>
+
+          <div id="page_3" class="view">
+
+            <div class="viewContainer">
+              test page 3
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="app_body">
+        <div id="bottomDrawer" class="bottomDrawer">
+          <div class="bottomDrawerHandle">
+            handle
+          </div>
 
-          <h4>some text</h4>
-
-          <input style="margin: 0 auto;" class="toggle" type="checkbox">
+          <div class="bottomDrawerContainer">
 
             <ul>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-              <li>some text</li>
-
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
+              <li>drawer text</li>
             </ul>
+
+          </div>
 
         </div>
 
-      </div>
-
-      <div id="page_2" class="app_view">
-        test page 2
-      </div>
-
-      <div id="page_3" class="app_view">
-        test page 3
-      </div>
+        <div class="containerFiller"></div></div>
 
       <nav id="bottomNav" class="bottomBar">
         <ul>
@@ -135,11 +193,12 @@
         </ul>
       </nav>
 
+      <div id="tooltip">
+        text
+      </div>
+
     </div>
 
-    <div id="tooltip">
-      text
-    </div>
 
   </body>
   <script type="text/javascript" src="script.js"></script>

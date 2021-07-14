@@ -1,12 +1,11 @@
 .bottomBar{
-  --active-button-color:#dbea8e;
   --active-button-alpha-color: rgba(255,255,255,0.1);
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: var(--app-bottom-bar-height);
-  background-color: black;
+  background-color: var(--app-color-2);
 
   display: flex;
 }
@@ -44,7 +43,7 @@
 }
 
 .bottomBar span{
-  color: white;
+  color: var(--text-color-2);
   font-size: 10px;
   width: 100%;
   text-align: center;
@@ -74,7 +73,7 @@
 }
 
 .bottomBar a.active div{
-  background-color: var(--active-button-color);
+  background-color: var(--app-color-1);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
 }
 

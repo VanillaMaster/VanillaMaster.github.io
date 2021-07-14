@@ -38,5 +38,5 @@
 }
 
 .toggle:checked::before{
-  background-color: #dbea8e;
+  background-color: var(--app-color-1);
 }

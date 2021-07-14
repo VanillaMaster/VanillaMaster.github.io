@@ -8,6 +8,15 @@
 
   });
 
+  const drawer = document.getElementById("bottomDrawer");
+  document.getElementById("drawerCheck").addEventListener('change', function() {
+    if (this.checked) {
+      drawer.classList.add("active")
+    } else {
+      drawer.classList.remove("active")
+    }
+  });
+
 
   function toggleFullScreen() {
     if (!document.fullscreenElement) {

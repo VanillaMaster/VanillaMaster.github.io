@@ -2,7 +2,18 @@
   --app-header-max-height:300px;
   --app-header-min-height:60px;
   --app-bottom-bar-height:60px;
-  --ripple-color:rgba(0,0,0,0.1);
+
+  --app-bottom-drawer-min-height:60px;
+
+  --ripple-color:rgba(0,0,0,0.1); /* default value*/
+
+  --app-color-1: #dbea8e; /* header? */
+  --app-color-2: #000000; /* bottom bar */
+  --app-color-3: #000000; /* app background*/
+  --app-color-4: #151618; /* bottom drawer color*/
+
+  --text-color-1: black;
+  --text-color-2: white;
 }
 body, html{
   height: 100%;
@@ -17,16 +28,6 @@ body{
   position: relative;
 }
 
-#app{
-  width: 100%;
-  height: 100%;
-  color: #FFFFFF;
-  font-size: 20px;
-  background: black;
-
-  overflow-y: hidden;
-}
-
 #tooltip{
   position: absolute;
   background: white;
@@ -35,15 +36,77 @@ body{
   display: none;
 }
 
-.app_view{
+#app{
   width: 100%;
   height: 100%;
+  color: var(--text-color-2);
+  font-size: 20px;
+  background: var(--app-color-3);
+
+  overflow-y: hidden;
+}
+
+.appContainer{
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.containerFiller{
+  height: calc(100% - var(--app-bottom-drawer-min-height) - var(--app-bottom-bar-height));
+  width: 100%;
+}
+
+.bottomDrawer{
+  height: 100%;
+  width: 100%;
+  background: var(--app-color-4);
+  position: absolute;
+  top: calc(100% - var(--app-bottom-drawer-min-height) - var(--app-bottom-bar-height));
+  overflow: hidden;
+  display: none;
+}
+
+.bottomDrawer.active{
+  display: block;
+}
+
+.bottomDrawerHandle{
+  height: var(--app-bottom-drawer-min-height);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomDrawerContainer{
+  height: calc(100% - var(--app-bottom-drawer-min-height));
+  width: 100%;
   overflow-y: scroll;
 }
 
-.app_body{
+.viewWrapper{
+  height: 100%;
+  width: 100%;
+
+  position: sticky;
+  top: 0;
+  overflow-y: hidden;
+}
+
+.view{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  overscroll-behavior-y: contain;
+}
+
+.viewContainer{
   width: 100%;
   display: flex;
-  padding-bottom: var(--app-bottom-bar-height);
+  padding-bottom: calc(var(--app-bottom-bar-height) + var(--app-bottom-drawer-min-height));
   flex-direction: column;
+  min-height: calc(100% - var(--app-bottom-bar-height) - var(--app-bottom-drawer-min-height) + 1px);
 }
