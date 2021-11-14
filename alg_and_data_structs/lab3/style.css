@@ -1,0 +1,28 @@
+body,html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+.visualize{
+  width: 400px;
+  height: 600px;
+}
+#data_input{
+  resize: none;
+  white-space: pre;
+  border:none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+}
+#data_input:focus{
+  outline: none;
+}

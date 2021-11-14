@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+
+    <label>
+      <div>
+        max nodes: <span id="inputIndicator">2</span>
+      </div>
+      <input id="input" type="range" min="1" max="10" value="2" step="1">
+    </label>
+
+    <select id="select">
+      <option value="1">не ориентированный, полный, взвешенный</option>
+      <option value="2">ориентированный, взвешенный, без циклов</option>
+      <option value="3">не взвешенный, не ориентированный, не полный</option>
+      <option value="4">ориентированный, взвешенный, с циклами</option>
+      <option value="5">двудольный, не взвешенный</option>
+    </select>
+
+    <button id="button" type="button" >generate</button>
+
+    <fieldset>
+      <legend>matrix</legend>
+      <div class="display"></div>
+    </fieldset>
+
+    <iframe class="visualize"></iframe>
+
+
+  </body>
+<script src="./script.js">
+
+</script>
+</html>
