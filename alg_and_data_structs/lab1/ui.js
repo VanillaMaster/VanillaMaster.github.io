@@ -1,6 +1,6 @@
 (function () {
 
-  import generator from "./script.js";
+  import {generator} from "./script.js";
 
   const inputIndicator = document.getElementById("inputIndicator");
   document.getElementById("input").oninput = (e) => {
