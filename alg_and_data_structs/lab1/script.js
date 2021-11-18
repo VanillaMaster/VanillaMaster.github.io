@@ -133,10 +133,10 @@ function generateTwo(size){
     for (let j = 0; j < max; j++) {
       if (getRandomBool()) {
         matrix[i][j] = sides[l]
-        if (sides != 0) usedSides.push({x:i,y:j,value:sides[l]});
+        if (sides[l] != 0) usedSides.push({x:i,y:j,value:sides[l]});
       } else {
         matrix[j][i] = sides[l]
-        if (sides != 0) usedSides.push({x:j,y:i,value:sides[l]});
+        if (sides[l] != 0) usedSides.push({x:j,y:i,value:sides[l]});
       }
       l++;
     }
