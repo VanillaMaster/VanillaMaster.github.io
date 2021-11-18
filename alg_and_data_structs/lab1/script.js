@@ -1,33 +1,12 @@
 (function () {
 
-  var nodes = 2
-
-  const generator = {
+  export const generator = {
     1: generateOne,
     2: generateTwo,
     3: generateThree,
     4: generateFour,
     5: generateFive,
   }
-
-  const inputIndicator = document.getElementById("inputIndicator");
-  document.getElementById("input").oninput = (e) => {
-    inputIndicator.innerText = e.srcElement.value
-    console.log(e.srcElement.value);
-    nodes = parseInt(e.srcElement.value);
-  }
-
-  const select = document.getElementById("select");
-  document.getElementById("button").addEventListener("click", ()=>{
-    console.log(select.value);
-
-    let graph = generator[select.value](nodes);
-
-    displayMatrix(graph);
-
-    console.log(`check: ${cycleCheck(graph)}`);
-
-  })
 
   function createEmptyMatrix(size) {
     return new Array(size).fill().map(i => (new Array(size).fill(0)));
@@ -43,10 +22,7 @@
 
   function displayMatrix(matrix) {
     matrix = matrix.join("\n").replaceAll(","," ");
-    //console.log(`https://graphonline.ru/?matrix=${encodeURI(matrix)}&separator=space`);
-
     document.body.querySelector(".visualize").src = `https://graphonline.ru/?matrix=${encodeURI(matrix)}&separator=space`;
-
     document.querySelector(".display").innerHTML = matrix;
   }
 
@@ -55,6 +31,7 @@
     let all = Array.from({length: matrix.length}, (_, i) => i);
 
     let a = dfs([all[0]],[all[0]],adjacency);
+
     return a;
 
     function dfs(path,visited,adjacency) {
@@ -70,20 +47,14 @@
       neighbors = exclude(neighbors,visited);
 
       if (neighbors.length > 0) {
-
         path.push(neighbors[0]);
         if ( !(visited.includes(neighbors[0])) ) visited.push(neighbors[0]);
-
         return dfs(path,visited,adjacency);
-
       } else {
         path.pop();
         if (path.length <=0) {
           let all = Array.from({length: adjacency.length}, (_, i) => i);
           let unVisited = exclude(all,visited);
-          //console.log(all);
-          //console.log(visited);
-          //console.log(unVisited);
           if (unVisited.length > 0) {
             if ( !(visited.includes(unVisited[0])) ) visited.push(unVisited[0]);
             return dfs([unVisited[0]],visited,adjacency)
@@ -128,7 +99,6 @@
       }
       return adjacency;
     }
-
   }
 
   function generateOne(size) {
@@ -147,7 +117,6 @@
 
   function generateTwo(size){
     let matrix = createEmptyMatrix(size);
-
     let cells = (size) * ((size-1)/2);
 
     let sidesAmount = getRandom(0,cells)
@@ -182,12 +151,9 @@
     while (cycleCheck(matrix)) {
       let remove = getRandom(0,usedSides.length);
       console.log(`rem:${remove}; max:${usedSides.length}`);
-
       matrix[(usedSides[remove].x)][(usedSides[remove].y)] = 0;
       usedSides.splice(remove, 1);
-
     }
-
     return matrix;
   }
 
@@ -214,14 +180,12 @@
         l++;
       }
     }
-
     return matrix;
   }
 
   function generateFour(size) {
 
     let matrix = createEmptyMatrix(size);
-
     let cells = (size) * ((size-1)/2);
 
     let sidesAmount = getRandom(1,cells)
@@ -253,8 +217,6 @@
       }
     }
 
-    console.log(usedSides);
-
     if (!cycleCheck(matrix)) {
       if (size > 1) {
         let index = getRandom(0,(usedSides.length - 1));
@@ -263,34 +225,66 @@
         matrix[0][0] = getRandom(1,9);
       }
     }
-
     return matrix;
-
   }
 
+  //min-size = 2;
   function generateFive(size) {
     let matrix = createEmptyMatrix(size);
 
-    let p1size = getRandom(1, (size-1));
-    let p2size = size - p1size;
+    let p1size = getRandom(1, Math.trunc(size/2)); //small one
+    let p2size = size - p1size; //large one
 
-    console.log(`${p1size}:${p2size}`);
+    let p1 = Array.from({length: p1size}, (_, i) => i);
+    let p2 = Array.from({length: p2size}, (_, i) => i+p1size);
 
-    p2size = Array.from({length: p2size}, (_, i) => i+p1size);
+    let chainSize = getRandom(2,(p1size*2));
+    let chainP1 = [];
+    let chainP2 = [];
 
-    p1size = Array.from({length: p1size}, (_, i) => i);
+    let tmpP1 = p1;
+    let tmpP2 = p2;
 
-    console.log(`${p1size}:${p2size}`);
-
-    for (let i = 0; i < p1size.length; i++) {
-      for (let j = 0; j < p2size.length; j++) {
-        if (getRandomBool()) {
-          matrix[(p1size[i])][(p2size[j])] = 1;
-          matrix[(p2size[j])][(p1size[i])] = 1;
-        }
+    let last = null;
+    let curent;
+    for (let i = 0; i < chainSize; i++) {
+      if (i%2 == 0) {
+        curent = tmpP1.splice(getRandom(0,(tmpP1.length-1)),1)[0];
+        chainP1.push(curent)
+      } else {
+        curent = tmpP2.splice(getRandom(0,(tmpP2.length-1)),1)[0];
+        chainP2.push(curent)
       }
+      if (last != null) {
+        matrix[last][curent] = 1;
+        matrix[curent][last] = 1;
+      }
+      last = curent;
     }
 
+    p1.forEach((node1, i) => {
+      let node = chainP2[getRandom(0,(chainP2.length-1))];
+      matrix[node1][node] = 1;
+      matrix[node][node1] = 1;
+      p2.forEach((node2, j) => {
+        if (getRandomBool()) {
+          matrix[node1][node2] = 1;
+          matrix[node2][node1] = 1;
+        }
+      });
+    });
+
+    p2.forEach((node2, i) => {
+      let node = chainP1[getRandom(0,(chainP1.length-1))];
+      matrix[node2][node] = 1;
+      matrix[node][node2] = 1;
+      p1.forEach((node1, j) => {
+        if (getRandomBool()) {
+          matrix[node1][node2] = 1;
+          matrix[node2][node1] = 1;
+        }
+      });
+    });
     return matrix;
   }
 
