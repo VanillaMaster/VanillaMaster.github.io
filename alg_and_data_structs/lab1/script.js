@@ -20,12 +20,6 @@ function getRandomBool(){
   return !!getRandom(0,1);
 }
 
-function displayMatrix(matrix) {
-  matrix = matrix.join("\n").replaceAll(","," ");
-  document.body.querySelector(".visualize").src = `https://graphonline.ru/?matrix=${encodeURI(matrix)}&separator=space`;
-  document.querySelector(".display").innerHTML = matrix;
-}
-
 function cycleCheck(matrix) {
   let adjacency = getAdjacency(matrix);
   let all = Array.from({length: matrix.length}, (_, i) => i);
