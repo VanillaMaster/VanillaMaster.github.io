@@ -1,48 +1,9 @@
-
 const processors = {
   1:getArtPoints,
   2:getBridges,
 }
 
-const input = document.getElementById('data_input');
-input.addEventListener("input",(e)=>{
-  input.style.width = "";
-  input.style.height = "";
-
-  input.style.width = `${input.scrollWidth}px`;
-  input.style.height = `${input.scrollHeight}px`;
-});
-
-const button = document.getElementById('button');
-const out = document.getElementById("output");
-const select = document.getElementById("select");
-button.addEventListener("click",(e)=>{
-  let matrix = parseMatrix(input.value);
-  displayMatrix(matrix);
-
-  //let data = getDiameterWidth(matrix);
-  let data = processors[select.value](matrix);
-  out.innerText = data;
-});
-
-function parseMatrix(data) {
-  let matrix = data.split("\n");
-
-  for (let i = 0; i < matrix.length; i++) {
-    matrix[i] = matrix[i].split(" ");
-    for (let j = 0; j < matrix[i].length; j++) {
-      matrix[i][j] = parseInt(matrix[i][j]);
-    }
-  }
-
-  return matrix
-}
-
-const visualize = document.body.querySelector(".visualize");
-function displayMatrix(matrix) {
-  matrix = matrix.join("\n").replaceAll(","," ");
-  visualize.src = `https://graphonline.ru/?matrix=${encodeURI(matrix)}&separator=space`;
-}
+export {processors};
 
 function getAdjacency(matrix) {
   let adjacency = [];
@@ -62,7 +23,6 @@ function getArtPoints(matrix) {
   let adjacency = getAdjacency(matrix);
   let all = Array.from({length: matrix.length}, (_, i) => i);
 
-  //=====
   let result = [];
   let visited = new Array(matrix.length).fill(false);
   let disc = new Array(matrix.length).fill(0);
@@ -73,15 +33,8 @@ function getArtPoints(matrix) {
   visited.forEach((item, i) => {
     if (!item) {
       findArtPoints(i);
-      console.log(result);
-      console.log(visited);
-      console.log(low);
-      console.log(disc);
     }
   });
-
-
-  //findArtPoints(0);
 
   function findArtPoints(node) {
     visited[node] = true;
@@ -89,8 +42,6 @@ function getArtPoints(matrix) {
     disc[node] = time + 1;
     time++;
     let child = 0;
-    console.log(node);
-    //console.log(adjacency);
     adjacency[node].forEach((item, i) => {
       if (!visited[item]) {
         child++;
@@ -107,18 +58,14 @@ function getArtPoints(matrix) {
         low[node] = Math.min(low[node],disc[item]);
       }
     });
-
   }
-
   return result;
-
 }
 
 function getBridges(matrix) {
   let adjacency = getAdjacency(matrix);
   let all = Array.from({length: matrix.length}, (_, i) => i);
 
-  //=====
   let result = [];
   let visited = new Array(matrix.length).fill(false);
   let disc = new Array(matrix.length).fill(0);
@@ -129,22 +76,14 @@ function getBridges(matrix) {
   visited.forEach((item, i) => {
     if (!item) {
       findBridges(i);
-      console.log(result);
-      console.log(visited);
-      console.log(low);
-      console.log(disc);
     }
   });
-
-
-  //findArtPoints(0);
 
   function findBridges(node) {
     visited[node] = true;
     low[node] = time + 1;
     disc[node] = time + 1;
     time++;
-    console.log(node);
     adjacency[node].forEach((item, i) => {
       if (!visited[item]) {
         parent[item] = node;
@@ -165,7 +104,5 @@ function getBridges(matrix) {
     answer+=`${item.start}:${item.end}; `
   });
 
-
   return answer;
-
 }
