@@ -1,14 +1,12 @@
 (function () {
 
-  const generator = {
+ export const generator = {
     1: generateOne,
     2: generateTwo,
     3: generateThree,
     4: generateFour,
     5: generateFive,
   }
-  
-  export {generator}
 
   function createEmptyMatrix(size) {
     return new Array(size).fill().map(i => (new Array(size).fill(0)));
