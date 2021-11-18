@@ -1,4 +1,4 @@
-(function () {
+//(function () {
 
  const generator = {
     1: generateOne,
@@ -8,7 +8,7 @@
     5: generateFive,
   }
 
-  export {generator}
+  export {generator};
 
   function createEmptyMatrix(size) {
     return new Array(size).fill().map(i => (new Array(size).fill(0)));
@@ -290,4 +290,4 @@
     return matrix;
   }
 
-})();
+//})();
