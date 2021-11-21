@@ -1,6 +1,0 @@
-",
-	width: 280,
-	height: 280
-});
-
-</script>
