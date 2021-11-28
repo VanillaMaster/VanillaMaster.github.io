@@ -1,0 +1,39 @@
+html,body{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+html{
+  overflow-y: scroll;
+  height: 100%;
+}
+body{
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td{
+  text-align: center;
+}
+tbody{
+  border: 2px solid black;
+}
+table{
+  width: 100%;
+  margin-bottom: 50px;
+}
+summary{
+  user-select: none;
+}
+details{
+  position: absolute;
+  width: 100%;
+}
+.content{
+  position: relative;
+}
