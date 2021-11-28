@@ -1,4 +1,4 @@
-export {programm,tm};
+export {programm,tm,_};
 
 const _ = undefined;
 // palindrome

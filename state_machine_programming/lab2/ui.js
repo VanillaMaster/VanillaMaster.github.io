@@ -1,4 +1,4 @@
-import {programm,tm} from "./script.js";
+import {programm,tm,_} from "./script.js";
 (function () {
   for (let [key, value] of Object.entries(programm)) {
     let row = document.createElement("tbody");
