@@ -37,5 +37,5 @@ var programm = {
 
 
 function tm(p,m,cS,eS,i) {
-  for (let a = p[cS][m[i]]; !eS.includes(cS); a = p[cS]?.[m[i]]) { m[i] = a.write; i+= a.move; cS = a.state; } return cS;
+  while (!eS.includes(cS)) { var a = p[cS][m[i]]; m[i] = a.write; i+= a.move; cS = a.state; } return cS;
 }
