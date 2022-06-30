@@ -36,7 +36,7 @@ class ListViewItem extends HTMLElement {
 }
 
 (async function () {
-    let html = await ((await fetch("/elements/ListViewItem/element.html")).text());
+    let html = await ((await fetch("/elements/listViewItem/element.html")).text());
     return document.createRange().createContextualFragment(html);
 })().then((template)=>{
 
