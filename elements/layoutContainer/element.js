@@ -1,15 +1,10 @@
-class layoutContainer extends HTMLElement {
-    static template = (async function () {
-        let html = await ((await fetch("/elements/layoutContainer/element.html")).text());
-        return document.createRange().createContextualFragment(html);
-    })();
-
+class LayoutContainer extends HTMLElement {
     constructor() {
         super();
         this.load();
     }
-    async load(){
-        const fragment = (await layoutContainer.template).cloneNode(true)
+    load(){
+        const fragment = LayoutContainer.template.cloneNode(true);
         this.#shadow = this.attachShadow({mode:'open'});
         this.#shadow.append(fragment);
     }
@@ -74,4 +69,15 @@ class layoutContainer extends HTMLElement {
 
 }
 
-customElements.define("layout-container",layoutContainer);
+const done = new Promise(async (resolve,reject)=>{
+    let html = await ((await fetch("/elements/layoutContainer/element.html")).text());
+    Object.defineProperty(LayoutContainer,"template",{
+        value: document.createRange().createContextualFragment(html),
+        enumerable: false,
+        configurable: false,
+        writable: false,
+    });
+    resolve();
+})
+const name = "layout-container";
+export {LayoutContainer as default,done,name};

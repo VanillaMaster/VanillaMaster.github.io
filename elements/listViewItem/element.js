@@ -54,17 +54,15 @@ class ListViewItem extends HTMLElement {
 
 }
 
-(async function () {
+const done = new Promise(async (resolve,reject)=>{
     let html = await ((await fetch("/elements/listViewItem/element.html")).text());
-    return document.createRange().createContextualFragment(html);
-})().then((template)=>{
-
     Object.defineProperty(ListViewItem,"template",{
-        value: template,
+        value: document.createRange().createContextualFragment(html),
         enumerable: false,
         configurable: false,
         writable: false,
     });
-
-    customElements.define("list-view-item",ListViewItem);
-});
+    resolve();
+})
+const name = "list-view-item";
+export {ListViewItem as default,done,name};

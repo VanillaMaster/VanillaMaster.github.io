@@ -1,8 +1,4 @@
 class layoutView extends HTMLElement {
-    static template = (async function () {
-        let html = await ((await fetch("/elements/layoutView/element.html")).text());
-        return document.createRange().createContextualFragment(html);
-    })();
     static showAnimationName = "appearing-grow";
     static hideAnimationName = "disappearing-shrink"
     static scrollStopFramesThreshold = 25;
@@ -11,8 +7,8 @@ class layoutView extends HTMLElement {
         super();
         this.load();
     }
-    async load(){
-        const fragment = (await layoutView.template).cloneNode(true);
+    load(){
+        const fragment = layoutView.template.cloneNode(true);
         this.#scrollElement = fragment.querySelector(".view");
 
 
@@ -48,7 +44,7 @@ class layoutView extends HTMLElement {
     connectedCallback(){
         this.#isShown = this.hasAttribute("active");
         let parent = this.parentElement;
-        while (parent!== null && !(parent instanceof layoutContainer)){
+        while (parent!== null && !(parent.tagName === "LAYOUT-CONTAINER")){
             parent = parent.parentElement;
         }
         this.#container = parent;
@@ -95,4 +91,15 @@ class layoutView extends HTMLElement {
     }
 }
 
-customElements.define("layout-view",layoutView);
+const done = new Promise(async (resolve,reject)=>{
+    let html = await ((await fetch("/elements/layoutView/element.html")).text());
+    Object.defineProperty(layoutView,"template",{
+        value: document.createRange().createContextualFragment(html),
+        enumerable: false,
+        configurable: false,
+        writable: false,
+    });
+    resolve();
+})
+const name = "layout-view";
+export {layoutView as default,done,name};
