@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" theme="white">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./layout.css">
+    <link rel="stylesheet" href="./themes.css">
+
+
+    <!--<script type="module" src="./app.js"></script>-->
+    <script src="./src/router.js"></script>
+
+    <link rel="stylesheet" href="/elements/lazyScript/style.css">
+    <script src="/elements/lazyScript/element.js"></script>
+
+    <script src="/elements/layoutContainer/element.js"></script>
+
+    <script src="/elements/layoutView/element.js"></script>
+
+    <script src="/elements/containerRipple/element.js"></script>
+
+    <script src="/elements/listViewItem/element.js"></script>
+
+</head>
+<body>
+    
+    <main id="app">
+
+        <layout-container id="layout-settings" path="/settings/">
+            
+            <layout-view name="smth" active>
+                <div>
+                    layout 2_1
+                </div>
+            </layout-view>
+
+            <nav slot="controll-top" class="top-nav">
+                <container-ripple class="button" ripple-type="circumcircle">
+                    <button onclick="window.router.goback()">
+                        <svg><use href="#backIcon"></use></svg>
+                    </button>
+                </container-ripple>
+                <span class="title">
+                    layout 2 Title
+                </span>
+            </nav>
+
+        </layout-container>
+
+        <layout-container id="layout-settings" path="/settings/search/">
+            
+            
+
+        </layout-container>
+
+        <layout-container id="layout-main" path="/" active>
+
+            <layout-view name="home" active>
+                <div class="home">
+
+                    <container-ripple class="large-btn2">
+                        <button onclick="window.router.goto('/settings/')">
+                            <span>next layout</span>
+                        </button>
+                    </container-ripple>
+                    
+
+                    <container-ripple class="btn2" ripple-type="">
+                        <button onclick="">
+                            <svg><use href="#searchIcon"></use></svg>
+                        </button>
+                    </container-ripple>
+
+                </div>
+            </layout-view>
+
+            <layout-view name="settings">
+                <span>layout 1-2</span>
+            </layout-view>
+
+            <layout-view name="smth" id="lvs">
+                <span>layout 1-3</span>
+
+                <div class="list">
+                    
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item selected>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <script>
+                                let elem = document.getElementById("bdcl")
+                                elem.addEventListener("pointerdown",(e)=>{
+                                    e.stopPropagation()
+                                })
+                            </script>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    <container-ripple class="list-item-wrapper">
+                        <list-view-item>
+                            <h1 class="title">Title</h1>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
+                            </div>
+    
+                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
+                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                        </list-view-item>
+                    </container-ripple>
+
+                    
+                </div>
+
+            </layout-view>
+
+            <nav slot="controll-bottom" class="nav-bar">
+
+                <container-ripple ripple-type="circumcircle">
+                    <button onclick="window.router.activeLayout.showView('home')">
+                        <span>asd</span>
+                    </button>
+                </container-ripple>
+
+                <container-ripple ripple-type="circumcircle">
+                    <button onclick="window.router.activeLayout.showView('settings')">
+                        <span>asd</span>
+                    </button>
+                </container-ripple>
+
+                <container-ripple ripple-type="circumcircle">
+                    <button onclick="window.router.activeLayout.showView('smth')">
+                        <span>asd</span>
+                    </button>
+                </container-ripple>
+
+            </nav>
+
+        </layout-container>
+
+    </main>
+
+    <svg class="svgTempaltes">
+        <symbol id="searchIcon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </symbol>
+        <symbol id="backIcon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"/>
+        </symbol>
+    </svg>
+</body>
+
+</html>
