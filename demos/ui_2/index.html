@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" theme="white">
+<html theme="white">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
     <!--<script type="module" src="./app.js"></script>-->
     <script src="./src/router.js"></script>
 
-    <link rel="stylesheet" href="/elements/lazyScript/style.css">
+    <link rel="stylesheet" href="./elements/lazyScript/style.css">
     <script src="/elements/lazyScript/element.js"></script>
 
     <script src="/elements/layoutContainer/element.js"></script>
@@ -56,7 +56,7 @@
 
         </layout-container>
 
-        <layout-container id="layout-main" path="/demos/ui_2/" active>
+        <layout-container id="layout-main" path="/" active>
 
             <layout-view name="home" active>
                 <div class="home">
@@ -79,6 +79,19 @@
 
             <layout-view name="settings">
                 <span>layout 1-2</span>
+                <br>
+                theme:
+                <select id="theme-select">
+                    <option value="white" selected>white</option>
+                    <option value="black">black</option>
+                </select>
+                <script>
+                    (function(html){
+                        document.getElementById("theme-select").addEventListener("change",(e)=>{
+                            html.setAttribute("theme",e.target.value)
+                        })
+                    })(document.querySelector("html"));
+                </script>
             </layout-view>
 
             <layout-view name="smth" id="lvs">
@@ -87,7 +100,7 @@
                 <div class="list">
                     
                     <container-ripple class="list-item-wrapper">
-                        <list-view-item selected>
+                        <list-view-item>
                             <h1 class="title">Title</h1>
                             <div class="text">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
@@ -96,14 +109,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
-                            <script>
-                                let elem = document.getElementById("bdcl")
-                                elem.addEventListener("pointerdown",(e)=>{
-                                    e.stopPropagation()
-                                })
-                            </script>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -117,8 +127,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -132,8 +145,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -147,8 +163,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -162,8 +181,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -177,8 +199,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -192,8 +217,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -207,8 +235,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -222,8 +253,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -237,8 +271,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -252,8 +289,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -267,8 +307,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -282,8 +325,11 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
@@ -297,40 +343,20 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
                             </div>
     
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
+                            <div slot="icon" class="icon">
+                                <img class="default" src="https://VanillaMaster.github.io/placeholder_image.png">
+                                <svg class="selected" ><use href="#ok"></use></svg>
+                            </div>
+                            <button slot="controll" style="pointer-events: all;" onpointerdown="event.stopPropagation();">btn</button>
                         </list-view-item>
                     </container-ripple>
 
-                    <container-ripple class="list-item-wrapper">
-                        <list-view-item>
-                            <h1 class="title">Title</h1>
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
-                            </div>
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
-                            </div>
-    
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
-                        </list-view-item>
-                    </container-ripple>
+                    
+                    
 
-                    <container-ripple class="list-item-wrapper">
-                        <list-view-item>
-                            <h1 class="title">Title</h1>
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
-                            </div>
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non ex animi cupiditate vitae in est, sapiente, tempore consequuntur autem praesentium soluta commodi maiores esse quas sed! Alias, molestiae est!
-                            </div>
-    
-                            <img slot="icon" src="https://VanillaMaster.github.io/placeholder_image.png">
-                            <button id="bdcl" slot="controll" style="pointer-events: all;">btn</button>
-                        </list-view-item>
-                    </container-ripple>
+                    
+
+                    
 
                     
                 </div>
@@ -369,6 +395,9 @@
         </symbol>
         <symbol id="backIcon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"/>
+        </symbol>
+        <symbol id="ok" viewBox="0 0 48 48">
+            <path d="M18.9 35.7 7.7 24.5l2.15-2.15 9.05 9.05 19.2-19.2 2.15 2.15Z"/>
         </symbol>
     </svg>
 </body>

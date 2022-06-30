@@ -8,6 +8,9 @@
     --secondary-color: lightgray;
     --background-color: white;
     --text-and-icon-color: black;
+
+    --touch-prevent-layer-color: rgba(0,0,255,0.2);
+    --touch-prevent-layer-color: transparent;
 }
 
 :root{
@@ -25,6 +28,7 @@ html[theme="white"]{
     --ripple-color:rgba(0,0,0,0.2);
 
     --prime-color: wheat;
+    --select-color: wheat;
     --secondary-color: lightgray;
     --background-color: white;
     --text-and-icon-color: black;
@@ -34,6 +38,7 @@ html[theme="black"]{
     --ripple-color:rgba(255,255,255,0.15);
     
     --prime-color: transparent;
+    --select-color: #013356;
     --secondary-color: #0d0d0d;
     --background-color: black;
     --text-and-icon-color: #dfdfdf;

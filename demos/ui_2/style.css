@@ -123,11 +123,55 @@ body,html{
     text-overflow: ellipsis;
 }
 
-.list img{
+.list img[slot=icon]{
     aspect-ratio: 1/1;
     object-fit: cover;
-    clip-path: circle(50%);
     width: 3em;
+    border-radius: 50%;
+}
+
+.list .icon{
+    aspect-ratio: 1/1;
+    width: 3em;
+    position: relative;
+}
+
+.list .icon>img{
+    position: absolute;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.list .icon>svg{
+    position: absolute;
+    border-radius: 50%;
+    height: 80%;
+    width: 80%;
+    padding: 10%;
+    fill: #c7c5cb;
+    background: #ebecec;
+}
+
+.list .icon .selected{
+    transform: rotateY(180deg);
+}
+.list .icon .default{
+    transform: rotateY(0deg);
+}
+
+.list list-view-item[selected] .selected{
+    transform: rotateY(0deg);
+}
+.list list-view-item[selected] .default{
+    transform: rotateY(180deg);
+}
+
+.list .icon .selected,
+.list .icon .default{
+    backface-visibility: hidden;
+    transition: transform 500ms;
 }
 
 .list .list-item-wrapper{
