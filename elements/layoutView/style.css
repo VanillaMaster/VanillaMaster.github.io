@@ -14,7 +14,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0,0,255,0.2);
+    background-color: var(--touch-prevent-layer-color,transparent);
 }
 
 :host{
@@ -44,7 +44,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    /*background-color: rgba(0, 0, 0, .5);*/
+    background-color: var(--touch-prevent-layer-color,transparent);
 }
 
 

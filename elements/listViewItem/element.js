@@ -6,10 +6,26 @@ class ListViewItem extends HTMLElement {
     load(){
         const fragment = ListViewItem.template.cloneNode(true)
 
+        //click on icon to toggle selection (click insted of press on body)
         let iconHolder = fragment.querySelector(".left");
-        iconHolder.addEventListener("pointerleave",(e)=>{
-            console.log(1);
+        const onPointerUp = (e)=>{this.toggleSelection();}
+        iconHolder.addEventListener("pointerdown",(e)=>{
+            iconHolder.addEventListener("pointerup",onPointerUp,{once:true})
+
+            iconHolder.addEventListener("pointerleave",(e)=>{
+                iconHolder.removeEventListener("pointerup",onPointerUp)
+            },{once:true})
+
+            //e.stopPropagation();
         })
+        iconHolder.addEventListener("gotpointercapture",(e)=>{
+            iconHolder.releasePointerCapture(e.pointerId);
+        })
+        iconHolder.addEventListener("contextmenu",(e)=>{
+            e.stopPropagation();
+        });
+
+
 
         this.#shadow = this.attachShadow({mode:'open'});
         this.#shadow.append(fragment);
@@ -21,22 +37,25 @@ class ListViewItem extends HTMLElement {
         this.addEventListener("contextmenu",(e)=>{
             //console.log(e.isTrusted);
             if (e.isTrusted === false) {
-                if (this.#isSelected){
-                    this.removeAttribute("selected");
-                    this.#isSelected = false;
-                } else {
-                    this.setAttribute("selected","");
-                    this.#isSelected = true;
-                }
+                this.toggleSelection();
             }
         })
+    }
+    toggleSelection(){
+        if (this.#isSelected){
+            this.removeAttribute("selected");
+            this.#isSelected = false;
+        } else {
+            this.setAttribute("selected","");
+            this.#isSelected = true;
+        }
     }
     #isSelected = false;
 
 }
 
 (async function () {
-    let html = await ((await fetch("/elements/listViewItem/element.html")).text());
+    let html = await ((await fetch("/elements/ListViewItem/element.html")).text());
     return document.createRange().createContextualFragment(html);
 })().then((template)=>{
 

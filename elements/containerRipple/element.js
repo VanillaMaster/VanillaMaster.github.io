@@ -21,7 +21,7 @@ const ContainerRipple = (function(){
                 ripple.style.setProperty("--x",`${e.layerX}px`);
                 ripple.style.setProperty("--y",`${e.layerY}px`);
 
-                const f = ()=>{container.removeChild(ripple);}
+                const f = (e)=>{container.removeChild(ripple);}
                 ripple.addEventListener("transitionend",f);
                 ripple.addEventListener("transitioncancel",f)
     

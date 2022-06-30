@@ -6,7 +6,7 @@
 :host([selected])::before{
     content: "";
     z-index: -1;
-    background-color: var(--prime-color);
+    background-color: var(--select-color);
     position: absolute;
     inset: 0;
 }
@@ -26,6 +26,7 @@
 
 .left{
     pointer-events: all;
+    touch-action: pan-y;
 }
 
 .left *{
@@ -41,6 +42,5 @@
 .default-img{
     aspect-ratio: 1/1;
     object-fit: cover;
-    clip-path: circle(50%);
     width: 3em;
 }

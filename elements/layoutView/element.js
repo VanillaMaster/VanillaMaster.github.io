@@ -20,7 +20,6 @@ class layoutView extends HTMLElement {
         let lastY = this.#scrollElement.scrollTop;
         const f = ()=>{
             this.setAttribute("scrolling","")
-            console.log(1);
             onNextFrame();
         }
         const onNextFrame = ()=>{
