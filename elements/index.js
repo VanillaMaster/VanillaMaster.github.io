@@ -17,6 +17,5 @@ modules.forEach((module_)=>{
     customElements.define(module_.name,module_.default);
 })
 console.log(modules);
-setTimeout(() => {
-    document.body.style.display = null;
-}, 5);
+
+document.body.style.display = null;
