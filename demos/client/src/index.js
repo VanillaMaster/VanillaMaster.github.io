@@ -1,6 +1,6 @@
 import "./moduleLoader/loader.js"
 
-import { applyEffect } from "./FluentRevealEffect.js"
+//import { applyEffect } from "./FluentRevealEffect.js"
 
 import { translation } from "./lang.js";
 
