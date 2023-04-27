@@ -4,7 +4,7 @@ import "./moduleLoader/loader.js"
 
 import { translation } from "./lang.js";
 
-import "../../proxy/src/patch.js";
+//import "../../proxy/src/patch.js";
 
 import { createChartWidget } from "./widgets/ChartWidget.js";
 import { gen } from "../tests/gen.js";
