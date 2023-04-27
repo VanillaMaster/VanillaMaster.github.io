@@ -1,10 +1,10 @@
 //TODO: implement it
 function loadModulesLoactions(){
     return [
-        "/client/modules/moduleLoaderGui/module.js",
-        "/client/modules/modalProvider/module.js",
-        "/client/modules/contextMenuProvider/module.js",
-        "/client/modules/gridProvider/module.js"
+        "../../modules/moduleLoaderGui/module.js",
+        "../../modules/modalProvider/module.js",
+        "../../modules/contextMenuProvider/module.js",
+        "../../modules/gridProvider/module.js"
     ]
 }
 
