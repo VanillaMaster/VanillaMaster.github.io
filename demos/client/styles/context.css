@@ -1,0 +1,47 @@
+.context-menu-list {
+    list-style: none;
+    margin: 0;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.context-menu-list hr{
+    border-color: #d8d9d9;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+.context-menu-list li{
+    display: flex;
+}
+
+.context-menu-list li>*{
+    flex-grow: 1;
+}
+
+.context-menu-list button {
+    flex-grow: 1;
+    font-size: inherit;
+    font-family: inherit;
+    color: #d8d9d9;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.context-menu-list button:hover {
+    background-color: rgba(255, 255, 255, 0.2)
+}

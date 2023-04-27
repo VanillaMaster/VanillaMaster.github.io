@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+    --shaodw-color: aquamarine;
+    --widget-color: #444;
+}
+
+html {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+
+    color: #e1e1e1; 
+    fill: #e1e1e1;
+}
+
+.grid {
+
+    width: 100%; 
+    /*background-color: #282828;*/
+    height: 100%;
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-color: #282828;
+    filter: url(#noise);
+}
+
+:not(:defined) {
+    visibility: hidden;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background: darkslategrey;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sidebar button {
+    height: 3em;
+    width: 3em;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    margin-top: auto;
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "fluent-reveal-effect": "^3.0.11"
+  }
+}
